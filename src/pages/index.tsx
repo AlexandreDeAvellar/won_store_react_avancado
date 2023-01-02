@@ -1,4 +1,4 @@
-const a = ''
+const a = '2'
 export default function Home() {
   return (
     <div>
