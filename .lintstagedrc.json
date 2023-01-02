@@ -1,5 +1,5 @@
 {
   "*.tsx": [
-    "eslint ./src/**/*.tsx --fix"
+    "eslint ./src/**/*.tsx --max-warnings=0 --fix"
   ]
 }
