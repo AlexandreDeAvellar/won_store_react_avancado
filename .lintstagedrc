@@ -1,0 +1,6 @@
+{
+  "*.tsx": [
+    "eslint ./src/**/*.tsx --max-warnings=0 --fix",
+    "npm run test:staged"
+  ]
+}
