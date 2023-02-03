@@ -7,11 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint src --max-warnings=0 --fix",
-    "test": "jest --bail --silent --noStackTrace --runInBand",
+    "test": "jest --bail --silent --noStackTrace --runInBand --passWithNoTests",
     "test:unit": "npm test -- --watch --collectCoverage=false",
     "test:staged": "npm test --",
-    "storybook": "start-storybook -s ./public -p 6006",
-    "build-storybook": "build-storybook"
+    "sb": "start-storybook -s ./public -p 6006",
+    "b-sb": "build-storybook -s ./public",
+    "generate": "npx plop --plopfile ./generators/plopfile.js"
   },
   "dependencies": {
     "@types/node": "18.11.11",
@@ -27,6 +28,7 @@
     "@babel/core": "^7.20.12",
     "@babel/preset-typescript": "^7.18.6",
     "@storybook/addon-actions": "^6.5.16",
+    "@storybook/addon-controls": "^6.5.16",
     "@storybook/addon-essentials": "^6.5.16",
     "@storybook/addon-interactions": "^6.5.16",
     "@storybook/addon-links": "^6.5.16",
@@ -55,6 +57,7 @@
     "jest-environment-jsdom": "^29.3.1",
     "jest-styled-components": "^7.1.1",
     "lint-staged": "^12.5.0",
+    "plop": "^3.1.1",
     "prettier": "^2.8.1"
   }
 }
