@@ -2,6 +2,7 @@
   "name": "won_store_react_avancado",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -10,6 +11,7 @@
     "test": "jest --bail --silent --noStackTrace --runInBand --passWithNoTests",
     "test:unit": "npm test -- --watch --collectCoverage=false",
     "test:staged": "npm test --",
+    "test:ci": "npm test -- --coverage",
     "sb": "start-storybook -s ./public -p 6006",
     "b-sb": "build-storybook -s ./public",
     "generate": "npx plop --plopfile ./generators/plopfile.js"
