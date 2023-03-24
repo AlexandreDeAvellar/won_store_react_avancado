@@ -1,4 +1,4 @@
-export const addShoppingCart = (
+export const addShoppingCartIcon = (
   <svg
     fill="currentColor"
     xmlns="http://www.w3.org/2000/svg"

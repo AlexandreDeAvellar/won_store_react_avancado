@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react'
 import { renderWithTheme } from '../../utils/tests/helpers'
-import { addShoppingCart } from '../icons'
+import { addShoppingCartIcon } from '../icons'
 import Button from '.'
 
 describe('<Button />', () => {
@@ -40,7 +40,7 @@ describe('<Button />', () => {
   })
 
   it('should render an icon version', () => {
-    renderWithTheme(<Button icon={addShoppingCart}>Buy Now</Button>)
+    renderWithTheme(<Button icon={addShoppingCartIcon}>Buy Now</Button>)
     const icon = screen.queryByRole('button')?.querySelector('svg')
     expect(screen.getByText(/buy now/i)).toBeInTheDocument()
     expect(icon).toBeInTheDocument()
