@@ -5,6 +5,8 @@ export const controlIcon = (
     viewBox="0 0 158 48"
     role="im"
     aria-label="Won Games"
+    // height={48}
+    // width={48}
   >
     <path
       fill="url(#paint0_linear)"
