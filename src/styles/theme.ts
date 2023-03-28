@@ -13,12 +13,12 @@ export default {
     normal: 400,
     bold: 600,
     sizes: {
-      xsmall: '1.2rem',
-      small: '1.4rem',
-      medium: '1.6rem',
-      large: '1.8rem',
-      xlarge: '2.0rem',
-      xxlarge: '2.8rem'
+      xsmall: '0.6rem',
+      small: '0.8rem',
+      medium: '1rem',
+      large: '1.2rem',
+      xlarge: '1.6rem',
+      xxlarge: '2rem'
     }
   },
   colors: {
@@ -32,13 +32,13 @@ export default {
     darkGray: '#2E2F42'
   },
   spacings: {
-    xxsmall: '0.8rem',
-    xsmall: '1.6rem',
-    small: '2.4rem',
-    medium: '3.2rem',
-    large: '4.0rem',
-    xlarge: '4.8rem',
-    xxlarge: '5.6rem'
+    xxsmall: '0.4rem',
+    xsmall: '0.8rem',
+    small: '1.2rem',
+    medium: '1.6rem',
+    large: '2.0rem',
+    xlarge: '2.4rem',
+    xxlarge: '2.8rem'
   },
   layers: {
     base: 10,
