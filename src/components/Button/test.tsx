@@ -7,7 +7,7 @@ describe('<Button />', () => {
   it('should render medium button by default', () => {
     const { container } = renderWithTheme(<Button>Buy Now</Button>)
     expect(screen.getByRole('button', { name: /Buy Now/i })).toHaveStyle({
-      height: '4rem',
+      height: '3.3rem',
       'font-size': '0.8rem',
       padding: '0.4rem 1.6rem'
     })
@@ -18,7 +18,7 @@ describe('<Button />', () => {
   it('should render small size button', () => {
     renderWithTheme(<Button size="small">Buy Now</Button>)
     expect(screen.getByRole('button', { name: /Buy Now/i })).toHaveStyle({
-      height: '3rem',
+      height: '2.2rem',
       'font-size': '0.6rem'
     })
   })
@@ -26,7 +26,7 @@ describe('<Button />', () => {
   it('should render large size button', () => {
     renderWithTheme(<Button size="large">Buy Now</Button>)
     expect(screen.getByRole('button', { name: /Buy Now/i })).toHaveStyle({
-      height: '5rem',
+      height: '4rem',
       'font-size': '1rem',
       padding: '0.4rem 2.0rem'
     })
