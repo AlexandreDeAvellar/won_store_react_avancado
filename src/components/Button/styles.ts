@@ -7,18 +7,18 @@ type WrapperProps = {
 
 const wrapperModifiers = {
   small: (theme: DefaultTheme) => css`
-    height: 2.2rem;
+    height: 2rem;
     font-size: ${theme.font.sizes.xsmall};
   `,
   medium: (theme: DefaultTheme) => css`
-    height: 3.3rem;
+    height: 2.7rem;
     font-size: ${theme.font.sizes.small};
-    padding: ${theme.spacings.xxsmall} ${theme.spacings.medium};
+    padding: ${theme.spacings.xxsmall} ${theme.spacings.large};
   `,
   large: (theme: DefaultTheme) => css`
-    height: 4rem;
+    height: 3.7rem;
     font-size: ${theme.font.sizes.medium};
-    padding: ${theme.spacings.xxsmall} ${theme.spacings.large};
+    padding: ${theme.spacings.xxsmall} ${theme.spacings.xxlarge};
   `,
   fullWidth: () =>
     css`
