@@ -48,4 +48,15 @@ describe('<Heading />', () => {
       'font-size': '2rem'
     })
   })
+
+  it('should render a small heading with a small line bottom', () => {
+    renderWithTheme(
+      <Heading lineBottom size="small">
+        Won Games
+      </Heading>
+    )
+    expect(screen.getByText(/won games/i)).toHaveStyleRule('width', '2.5rem', {
+      modifier: '::after'
+    })
+  })
 })
