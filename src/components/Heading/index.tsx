@@ -5,7 +5,7 @@ export type HeadingProps = {
   color?: 'white' | 'black'
   lineLeft?: boolean
   lineBottom?: boolean
-  sizes?: 'small' | 'normal'
+  size?: 'small' | 'normal'
 }
 
 const Heading = ({
@@ -13,13 +13,13 @@ const Heading = ({
   color = 'white',
   lineLeft = false,
   lineBottom = false,
-  sizes = 'normal'
+  size = 'normal'
 }: HeadingProps) => (
   <S.Wrapper
     color={color}
     lineLeft={lineLeft}
     lineBottom={lineBottom}
-    sizes={sizes}
+    size={size}
   >
     {children}
   </S.Wrapper>
