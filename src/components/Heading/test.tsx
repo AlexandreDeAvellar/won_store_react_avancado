@@ -36,9 +36,16 @@ describe('<Heading />', () => {
   })
 
   it('should render a heading with a small size', () => {
+    renderWithTheme(<Heading size="small">Won Games</Heading>)
+    expect(screen.getByText(/won games/i)).toHaveStyle({
+      'font-size': '1rem'
+    })
+  })
+
+  it('should render a heading with a normal size', () => {
     renderWithTheme(<Heading>Won Games</Heading>)
     expect(screen.getByText(/won games/i)).toHaveStyle({
-      'font-size': '1.6rem'
+      'font-size': '2rem'
     })
   })
 })
