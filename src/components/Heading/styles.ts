@@ -4,6 +4,9 @@ import { HeadingProps } from '.'
 const wrapperModifiers = {
   small: (theme: DefaultTheme) => css`
     font-size: ${theme.font.sizes.medium};
+    &::after {
+      width: 2.5rem;
+    }
   `,
   normal: (theme: DefaultTheme) => css`
     font-size: ${theme.font.sizes.xxlarge};
