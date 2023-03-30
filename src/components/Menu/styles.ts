@@ -18,29 +18,26 @@ export const IconWrapper = styled.div`
     color: ${theme.colors.white};
     display: flex;
     align-items: center;
+    margin: 0 1rem;
   `}
 `
 
 export const LogoWrapper = styled.div`
   ${media.lessThan('medium')`
-  position: absolute;
-  left: 56%;
   /* transform: translateX(-50%); */
+  left: 56%;
+  `}
 
+  left: 3.3rem;
+  position: absolute;
   div {
     display: flex;
     align-items: center;
     justify-content: center;
     transform: scale(4.8);
-      height: 1.4rem;
-      width: 1.4rem;
-    }
-
-    svg {
-      height: 1.4rem;
-      width: 1.4rem;
-    }
-    `}
+    height: 1.4rem;
+    width: 1.4rem;
+  }
 `
 
 export const MenuGroup = styled.div`
@@ -48,6 +45,7 @@ export const MenuGroup = styled.div`
     display: flex;
     flex-grow: 1;
     justify-content: flex-end;
+    align-items: center;
 
     > div {
       margin-left: 0.2rem;
@@ -91,6 +89,7 @@ export const MenuFull = styled.nav<MenuFullProps>`
       justify-content: center;
       flex: 1;
       flex-direction: column;
+      margin-left: 0;
     }
 
     ${RegisterBox} {
@@ -99,11 +98,16 @@ export const MenuFull = styled.nav<MenuFullProps>`
     }
   `}
 `
-export const MenuNav = styled.div``
+export const MenuNav = styled.div`
+  ${media.greaterThan('medium')`
+    margin-left: 7rem;
+  `}
+`
 
 export const MenuLink = styled.a`
   ${({ theme }) => css`
     position: relative;
+    color: ${theme.colors.white};
     margin: 0.3rem ${theme.spacings.small} 0;
     text-decoration: none;
     text-align: center;
@@ -136,8 +140,8 @@ export const CloseMenu = styled.span`
   ${() => css`
     > svg {
       position: absolute;
-      top: 0;
       right: 0;
+      top: 0;
       margin: 1rem;
       width: 1.4rem;
       height: 1.4rem;
