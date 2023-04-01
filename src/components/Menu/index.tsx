@@ -33,9 +33,7 @@ const Menu = ({ username }: MenuProps) => {
 
       <S.MenuGroup>
         <S.IconWrapper aria-label="Search">{searchIcon}</S.IconWrapper>
-        <S.IconWrapper aria-label="Open Shopping Cart">
-          {shoppingCartIcon}
-        </S.IconWrapper>
+        <S.IconWrapper aria-label="Open Shopping Cart">{shoppingCartIcon}</S.IconWrapper>
 
         {!!username && (
           <MediaMatch greaterThan="medium">

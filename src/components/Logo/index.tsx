@@ -7,11 +7,7 @@ export type LogoProps = {
   hideOnMobile?: boolean
 }
 
-const Logo = ({
-  color = 'white',
-  size = 'normal',
-  hideOnMobile = false
-}: LogoProps) => (
+const Logo = ({ color = 'white', size = 'normal', hideOnMobile = false }: LogoProps) => (
   <S.Wrapper color={color} size={size} hideOnMobile={hideOnMobile}>
     {controlIcon}
   </S.Wrapper>
