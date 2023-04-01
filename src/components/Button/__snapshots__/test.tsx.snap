@@ -13,6 +13,10 @@ exports[`<Button /> should render medium button by default 1`] = `
   padding: 0.4rem 2.0rem;
 }
 
+.c0:hover {
+  background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
+}
+
 <button
   class="c0"
 >
