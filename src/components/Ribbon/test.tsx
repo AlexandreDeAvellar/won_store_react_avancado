@@ -20,11 +20,11 @@ describe('<Ribbon />', () => {
 
   it('should render with the normal size as default', () => {
     renderWithTheme(<Ribbon> Best Seller</Ribbon>)
-    expect(screen.getByText(/best seller/i)).toHaveStyle({ height: '3.6rem', fontSize: '1rem' })
+    expect(screen.getByText(/best seller/i)).toHaveStyle({ height: '3rem', fontSize: '1rem' })
   })
 
   it('should render with the small size', () => {
     renderWithTheme(<Ribbon size="small"> Best Seller</Ribbon>)
-    expect(screen.getByText(/best seller/i)).toHaveStyle({ height: '2.6rem', fontSize: '0.8rem' })
+    expect(screen.getByText(/best seller/i)).toHaveStyle({ height: '2rem', fontSize: '0.8rem' })
   })
 })
