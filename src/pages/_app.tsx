@@ -9,7 +9,8 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={theme}>
       <Head>
-        <title>React</title>
+        <title>Won Games</title>
+        <meta name="description" content="The best Game Store in the world!" />
       </Head>
       <GlobalStyles />
       <Component {...pageProps} />
