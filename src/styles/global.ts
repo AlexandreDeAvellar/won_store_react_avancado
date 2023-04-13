@@ -5,6 +5,10 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+    &::before, &::after {
+      box-sizing: inherit;
+    }
   }
 
 ${({ theme }) => css`
@@ -18,6 +22,7 @@ ${({ theme }) => css`
     height: 100%;
     font-family: ${theme.font.family};
     font-size: ${theme.font.sizes.medium};
+    background-color: ${theme.colors.mainBg};
   }
 `}
 `
