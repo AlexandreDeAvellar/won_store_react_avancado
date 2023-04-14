@@ -1,14 +1,9 @@
 import { screen } from '@testing-library/react'
 import Banner, { BannerProps } from '.'
+import { item } from './banner-mocks'
 import { renderWithTheme } from '../../utils/tests/helpers'
 
-const props: BannerProps = {
-  img: 'https://source.unsplash.com/user/willianjusten/1042x580',
-  title: 'Defy death',
-  subtitle: '<p>Play the new <strong>CrashLands</strong> season</p>',
-  buttonLabel: 'Buy now',
-  buttonLink: '/games/defy-death'
-}
+const props: BannerProps = item
 
 describe('<Banner />', () => {
   it('should render the image', () => {

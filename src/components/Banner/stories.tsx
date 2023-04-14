@@ -1,17 +1,12 @@
 import Banner, { BannerProps } from '.'
+import { item } from './banner-mocks'
 import { Story, Meta } from '@storybook/react'
 
 export default {
   title: 'Banner',
   component: Banner,
   argTypes: { ribbon: { type: 'string' } },
-  args: {
-    img: 'https://source.unsplash.com/user/willianjusten/1042x580',
-    title: 'Defy death',
-    subtitle: '<p>Play the new <strong>CrashLands</strong> season</p>',
-    buttonLabel: 'Buy now',
-    buttonLink: '/games/defy-death'
-  },
+  args: item,
   parameters: { layout: 'fullscreen' }
 } as Meta
 
