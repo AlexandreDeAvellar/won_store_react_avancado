@@ -4,24 +4,9 @@ import { renderWithTheme } from '../../utils/tests/helpers'
 
 import BannerSlider from '.'
 import { BannerProps } from '../Banner'
+import { items as bannerItems } from './banner-slider-mocks'
 
-const items: BannerProps[] = [
-  {
-    img: 'https://source.unsplash.com/user/willianjusten/1042x580',
-    title: 'Defy death 1',
-    subtitle: '<p>Play the new <strong>CrashLands</strong> season',
-    buttonLabel: 'Buy now',
-    buttonLink: '/games/defy-death',
-    ribbon: 'Bestselling'
-  },
-  {
-    img: 'https://source.unsplash.com/user/willianjusten/1042x582',
-    title: 'Defy death 2',
-    subtitle: '<p>Play the new <strong>CrashLands</strong> season',
-    buttonLabel: 'Buy now',
-    buttonLink: '/games/defy-death'
-  }
-]
+const items: BannerProps[] = bannerItems.splice(0, 2)
 
 describe('<BannerSlider />', () => {
   it('should render vertical slider', () => {
