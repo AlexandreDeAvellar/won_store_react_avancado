@@ -1,4 +1,4 @@
-export const items = [
+export const gameCardProps = [
   {
     title: 'Population Zero',
     developer: 'Rockstar Games',

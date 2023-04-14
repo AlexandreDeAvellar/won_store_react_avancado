@@ -1,12 +1,12 @@
 import Banner, { BannerProps } from '.'
-import { item } from './banner-mocks'
+import { bannerProps } from './banner-mocks'
 import { Story, Meta } from '@storybook/react'
 
 export default {
   title: 'Banner',
   component: Banner,
   argTypes: { ribbon: { type: 'string' } },
-  args: item,
+  args: bannerProps,
   parameters: { layout: 'fullscreen' }
 } as Meta
 

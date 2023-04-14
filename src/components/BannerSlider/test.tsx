@@ -4,9 +4,9 @@ import { renderWithTheme } from '../../utils/tests/helpers'
 
 import BannerSlider from '.'
 import { BannerProps } from '../Banner'
-import { items as bannerItems } from './banner-slider-mocks'
+import { bannerSliderProps } from './banner-slider-mocks'
 
-const items: BannerProps[] = bannerItems.splice(0, 2)
+const items: BannerProps[] = bannerSliderProps.splice(0, 2)
 
 describe('<BannerSlider />', () => {
   it('should render vertical slider', () => {
