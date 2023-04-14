@@ -1,14 +1,8 @@
 import Highlight, { HighlightProps } from '.'
 import { Story, Meta } from '@storybook/react'
+import { highlightProps } from './highlight-mocks'
 
-const args: HighlightProps = {
-  title: "Read Dead it's back",
-  subtitle: "Come see john's new adventures",
-  buttonLabel: 'Buy now',
-  buttonLink: '/rdr2',
-  backgroundImage: '/img/red-dead-img.jpg',
-  floatImage: '/img/red-dead-float.png'
-}
+const args: HighlightProps = highlightProps
 
 export default {
   title: 'Highlight',
