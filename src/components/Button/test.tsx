@@ -2,6 +2,7 @@ import { screen } from '@testing-library/react'
 import { renderWithTheme } from '../../utils/tests/helpers'
 import { addShoppingCartIcon } from '../icons'
 import Button from '.'
+import theme from '../../styles/theme'
 
 describe('<Button />', () => {
   it('should render medium button by default', () => {
@@ -54,5 +55,20 @@ describe('<Button />', () => {
     )
 
     expect(screen.getByRole('link', { name: /buy now/i })).toHaveAttribute('href', '/link')
+  })
+
+  it('should render Button minimal version', () => {
+    renderWithTheme(
+      <Button minimal as="a" href="/link">
+        Buy now
+      </Button>
+    )
+
+    expect(screen.getByRole('link', { name: /buy now/i })).toHaveStyle({
+      background: 'none',
+      color: `${theme.colors.primary}`
+    })
+
+    expect(screen.getByRole('link', { name: /buy now/i })).toHaveStyleRule('background', 'none', { modifiers: ':hover' })
   })
 })
