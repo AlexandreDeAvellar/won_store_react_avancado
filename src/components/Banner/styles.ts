@@ -5,9 +5,11 @@ import * as RibbonStyles from '../Ribbon/styles'
 export const Wrapper = styled.main`
   position: relative;
 
+  /* width: 100%; */
   ${media.greaterThan('medium')`
     box-shadow: 0 0.4rem 0.5rem 0 rgba(0, 0, 0, 0.2);
-    `}
+    /* width: 85%; */
+  `}
 
   ${media.lessThan('large')`
     ${RibbonStyles.Wrapper} {
