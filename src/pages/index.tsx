@@ -1,5 +1,6 @@
-import Main from 'components/main'
+import Home from '../templates/Home'
+import { homeTemplateProps } from '../templates/Home/home-mocks'
 
-export default function Home() {
-  return <Main />
+export default function Index() {
+  return <Home {...homeTemplateProps} />
 }
