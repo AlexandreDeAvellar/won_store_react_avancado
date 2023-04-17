@@ -5,7 +5,7 @@ import { bannerSliderProps } from './banner-slider-mocks'
 export default {
   title: 'BannerSlider',
   component: BannerSlider,
-  args: { bannerSliderProps },
+  args: { items: bannerSliderProps },
   parameters: {
     layout: 'fullscreen',
     backgrounds: {

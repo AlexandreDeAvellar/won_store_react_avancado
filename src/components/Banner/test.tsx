@@ -1,9 +1,9 @@
 import { screen } from '@testing-library/react'
 import Banner, { BannerProps } from '.'
-import { item } from './banner-mocks'
+import { bannerProps } from './banner-mocks'
 import { renderWithTheme } from '../../utils/tests/helpers'
 
-const props: BannerProps = item
+const props: BannerProps = bannerProps
 
 describe('<Banner />', () => {
   it('should render the image', () => {
