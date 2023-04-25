@@ -29,7 +29,10 @@ export default {
     lightBg: '#F2F2F2',
     lightGray: '#EAEAEA',
     gray: '#8F8F8F',
-    darkGray: '#2E2F42'
+    darkGray: '#2E2F42',
+    success: '#05FF00',
+    warning: '#FFE600',
+    danger: '#FF0000'
   },
   spacings: {
     xxsmall: '0.4rem',
