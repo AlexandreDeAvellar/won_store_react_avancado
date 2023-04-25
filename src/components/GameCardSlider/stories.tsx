@@ -2,12 +2,11 @@ import { Story, Meta } from '@storybook/react/types-6-0'
 
 import { GameCardProps } from 'components/GameCard'
 import GameCardSlider from '.'
-import { items } from './game-card-slider-mocks'
+import { gameCardProps } from './game-card-slider-mocks'
 
 export default {
   title: 'GameCardSlider',
   component: GameCardSlider,
-  args: { items },
   parameters: {
     layout: 'fullscreen',
     backgrounds: {
@@ -18,6 +17,6 @@ export default {
 
 export const Default: Story<GameCardProps[]> = (args) => (
   <div style={{ maxWidth: '130rem', margin: '0 auto' }}>
-    <GameCardSlider items={args} {...args} />
+    <GameCardSlider items={gameCardProps} {...args} />
   </div>
 )
