@@ -21,7 +21,7 @@ ${({ theme }) => css`
   #__next {
     height: 100%;
     font-family: ${theme.font.family};
-    font-size: ${theme.font.sizes.medium};
+    /* font-size: ${theme.font.sizes.medium}; */
     background-color: ${theme.colors.mainBg};
   }
 `}
