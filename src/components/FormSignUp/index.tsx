@@ -4,10 +4,10 @@ import { accountCircleIcon, mailIcon, lockIcon } from '../icons'
 import Button from '../Button'
 import TextField from '../TextField'
 
-import * as S from './styles'
+import { FormLink, FormWrapper } from '../Form'
 
 const FormSignUp = () => (
-  <S.Wrapper>
+  <FormWrapper>
     <form>
       <TextField name="name" placeholder="Name" type="name" icon={accountCircleIcon} />
       <TextField name="email" placeholder="Email" type="email" icon={mailIcon} />
@@ -18,11 +18,11 @@ const FormSignUp = () => (
         Sign up now
       </Button>
 
-      <S.FormLink>
+      <FormLink>
         Already have an account? <Link href="/sign-in">Sign in</Link>
-      </S.FormLink>
+      </FormLink>
     </form>
-  </S.Wrapper>
+  </FormWrapper>
 )
 
 export default FormSignUp

@@ -4,10 +4,11 @@ import { mailIcon, lockIcon } from '../icons'
 import Button from '../Button'
 import TextField from '../TextField'
 
+import { FormLink, FormWrapper } from '../Form'
 import * as S from './styles'
 
 const FormSignIn = () => (
-  <S.Wrapper>
+  <FormWrapper>
     <form>
       <TextField name="email" placeholder="Email" type="email" icon={mailIcon} />
       <TextField name="password" placeholder="Password" type="password" icon={lockIcon} />
@@ -17,11 +18,11 @@ const FormSignIn = () => (
         Sign in now
       </Button>
 
-      <S.FormLink>
+      <FormLink>
         Don’t have an account? <Link href="/sign-up">Sign up</Link>
-      </S.FormLink>
+      </FormLink>
     </form>
-  </S.Wrapper>
+  </FormWrapper>
 )
 
 export default FormSignIn
