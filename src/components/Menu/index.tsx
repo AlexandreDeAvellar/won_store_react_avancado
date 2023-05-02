@@ -4,6 +4,7 @@ import Logo from '../Logo'
 import MediaMatch from '../MediaMatch'
 import { useState } from 'react'
 import Button from '../Button'
+import Link from 'next/link'
 
 export type MenuProps = {
   username?: string
@@ -26,7 +27,9 @@ const Menu = ({ username }: MenuProps) => {
 
       <MediaMatch greaterThan="medium">
         <S.MenuNav>
-          <S.MenuLink href="#"> Home </S.MenuLink>
+          <Link href="/" passHref legacyBehavior>
+            <S.MenuLink href="#"> Home </S.MenuLink>
+          </Link>
           <S.MenuLink href="#"> Explore </S.MenuLink>
         </S.MenuNav>
       </MediaMatch>
@@ -37,7 +40,9 @@ const Menu = ({ username }: MenuProps) => {
 
         {!username && (
           <MediaMatch greaterThan="medium">
-            <Button size="medium">Sign in</Button>
+            <Link href="/sign-in" passHref legacyBehavior>
+              <Button size="medium">Sign in</Button>
+            </Link>
           </MediaMatch>
         )}
       </S.MenuGroup>
@@ -48,7 +53,9 @@ const Menu = ({ username }: MenuProps) => {
         </S.CloseMenu>
 
         <S.MenuNav>
-          <S.MenuLink href="#"> Home </S.MenuLink>
+          <Link href="/" passHref legacyBehavior>
+            <S.MenuLink href="#"> Home </S.MenuLink>
+          </Link>
           <S.MenuLink href="#"> Explore </S.MenuLink>
 
           {!!username && (
@@ -61,13 +68,15 @@ const Menu = ({ username }: MenuProps) => {
 
         {!username && (
           <S.RegisterBox>
-            <Button fullWidth size="medium">
-              Log in now
-            </Button>
+            <Link href="/sign-in" passHref legacyBehavior>
+              <Button fullWidth size="medium" as="a">
+                Sign in
+              </Button>
+            </Link>
             <span>Or</span>
-            <S.CreateAccount href="#" title="sign up">
-              Sign Up
-            </S.CreateAccount>
+            <Link href="/sign-up" passHref legacyBehavior>
+              <S.CreateAccount title="sign up">Sign Up</S.CreateAccount>
+            </Link>
           </S.RegisterBox>
         )}
       </S.MenuFull>
