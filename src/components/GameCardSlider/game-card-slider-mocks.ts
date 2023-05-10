@@ -1,4 +1,6 @@
-export const gameCardProps = [
+import { GameCardProps } from 'components/GameCard'
+
+export const gameCardProps: GameCardProps[] = [
   {
     title: 'Population Zero',
     developer: 'Rockstar Games',
