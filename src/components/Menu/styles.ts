@@ -2,11 +2,12 @@ import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
 export const Wrapper = styled.menu`
-  ${() => css`
+  ${({ theme }) => css`
     display: flex;
     align-items: center;
     padding: 1rem;
     position: relative;
+    z-index: ${theme.layers.menu};
   `}
 `
 
