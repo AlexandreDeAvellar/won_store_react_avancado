@@ -22,13 +22,15 @@ const Menu = ({ username }: MenuProps) => {
       </MediaMatch>
 
       <S.LogoWrapper>
-        <Logo hideOnMobile />
+        <Link href="/">
+          <Logo hideOnMobile />
+        </Link>
       </S.LogoWrapper>
 
       <MediaMatch greaterThan="medium">
         <S.MenuNav>
           <Link href="/" passHref legacyBehavior>
-            <S.MenuLink href="#"> Home </S.MenuLink>
+            <S.MenuLink href="/"> Home </S.MenuLink>
           </Link>
           <S.MenuLink href="#"> Explore </S.MenuLink>
         </S.MenuNav>
@@ -54,7 +56,7 @@ const Menu = ({ username }: MenuProps) => {
 
         <S.MenuNav>
           <Link href="/" passHref legacyBehavior>
-            <S.MenuLink href="#"> Home </S.MenuLink>
+            <S.MenuLink href="/"> Home </S.MenuLink>
           </Link>
           <S.MenuLink href="#"> Explore </S.MenuLink>
 
