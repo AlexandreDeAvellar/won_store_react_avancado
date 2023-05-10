@@ -1,8 +1,8 @@
 import { GameInfoProps } from '.'
 
 export const gameInfoProps: GameInfoProps = {
-  title: 'Borderlands 3',
-  price: '215,00',
+  title: 'Cyberpunk 2077',
+  price: '59.00',
   description:
-    'Experience the epic space strategy games that redefined the RTS genre. Control your fleet and build an armada across more than 30 single-player missions.'
+    'Cyberpunk 2077 is an open-world, action-adventure story set in Night City, a megalopolis obsessed with power, glamour and body modification. You play as V, a mercenary outlaw going after a one-of-a-kind implant that is the key to immortality'
 }

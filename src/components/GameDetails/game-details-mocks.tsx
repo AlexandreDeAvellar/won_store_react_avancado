@@ -1,10 +1,10 @@
 import { GameDetailsProps } from '.'
 
 export const gameDetailsProps: GameDetailsProps = {
-  developer: 'Different Tales',
-  releaseDate: '2020-11-21T23:00:00',
+  developer: 'CD PROJECT RED',
+  releaseDate: '2020-12-10T23:00:00',
   platforms: ['windows', 'mac', 'linux'],
-  // publisher: 'Walkabout',
-  rating: 'BR0',
-  genres: ['Role-playing']
+  publisher: 'CD PROJECT RED',
+  rating: 'BR18',
+  genres: ['Action', 'Role-playing']
 }
