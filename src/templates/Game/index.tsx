@@ -7,6 +7,7 @@ import GameDetails, { GameDetailsProps } from '../../components/GameDetails'
 import { GameCardProps } from '../../components/GameCard'
 import { HighlightProps } from '../../components/Highlight'
 import Showcase from '../../components/Showcase'
+import { Divider } from '../../components/Divider'
 
 export type GameTemplateProps = {
   cover: string
@@ -39,6 +40,7 @@ const Game = ({ cover, gameInfo, gallery, description, details, recommendedGames
 
       <S.SectionDetails>
         <GameDetails {...details} />
+        <Divider />
       </S.SectionDetails>
 
       <Showcase title="upcominging" game={upcomingGames} highlight={upcomingHighlight} />
