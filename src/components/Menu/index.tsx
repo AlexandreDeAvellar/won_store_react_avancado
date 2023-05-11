@@ -22,7 +22,7 @@ const Menu = ({ username }: MenuProps) => {
       </MediaMatch>
 
       <S.LogoWrapper>
-        <Link href="/">
+        <Link href="/" passHref legacyBehavior>
           <Logo hideOnMobile />
         </Link>
       </S.LogoWrapper>
