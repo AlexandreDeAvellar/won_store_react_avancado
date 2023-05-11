@@ -10,7 +10,10 @@ export const Wrapper = styled.div`
 `
 
 export const Content = styled.div`
-  flex: 1 0 auto;
+  ${({ theme }) => css`
+    margin-top: calc(${theme.spacings.xxlarge} * 1.8);
+    flex: 1 0 auto;
+  `}
 `
 
 export const SectionFooter = styled.section`
