@@ -6,7 +6,8 @@ export default {
   title: 'Button',
   component: Button,
   argTypes: {
-    children: { type: 'string' }
+    children: { type: 'string' },
+    disabled: { type: 'boolean' }
   },
   icon: { type: '' }
 } as Meta
