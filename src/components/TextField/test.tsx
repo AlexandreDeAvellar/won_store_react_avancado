@@ -9,8 +9,8 @@ import theme from '../../styles/theme'
 
 const props: TextFieldProps = {
   label: 'TextField',
-  labelFor: 'TextField',
-  id: 'TextField'
+  id: 'TextField',
+  name: 'TextField'
 }
 
 describe('<TextField />', () => {
