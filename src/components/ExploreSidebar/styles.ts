@@ -8,11 +8,18 @@ import * as HeadingStyles from '../Heading/styles'
 
 export const IconWrapper = styled.div`
   cursor: pointer;
-  width: 2.4rem;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
   height: 2.4rem;
   ${media.greaterThan('medium')`
     display: none;
   `}
+
+  ruby-span, svg {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
 `
 
 export const Content = styled.div`

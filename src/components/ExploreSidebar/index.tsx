@@ -47,12 +47,16 @@ const ExploreSidebar = ({ items, onFilter, initialValues = {} }: ExploreSidebarP
     <S.Wrapper isOpen={isOpen}>
       <S.Overlay aria-hidden={isOpen} />
       <S.IconWrapper>
-        <S.FilterIcon aria-label="open filters" onClick={() => setIsOpen(true)}>
-          {filterListIcon}
-        </S.FilterIcon>
-        <S.CloseIcon aria-label="close filters" onClick={() => setIsOpen(false)}>
-          {closeIcon}
-        </S.CloseIcon>
+        {!isOpen && (
+          <S.FilterIcon aria-label="open filters" onClick={() => setIsOpen(true)}>
+            {filterListIcon}
+          </S.FilterIcon>
+        )}
+        {isOpen && (
+          <S.CloseIcon aria-label="close filters" onClick={() => setIsOpen(false)}>
+            {closeIcon}
+          </S.CloseIcon>
+        )}
       </S.IconWrapper>
 
       <S.Content>
