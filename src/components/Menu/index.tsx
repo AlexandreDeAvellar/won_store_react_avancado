@@ -32,7 +32,9 @@ const Menu = ({ username }: MenuProps) => {
           <Link href="/" passHref legacyBehavior>
             <S.MenuLink href="/"> Home </S.MenuLink>
           </Link>
-          <S.MenuLink href="#"> Explore </S.MenuLink>
+          <Link href="/games" passHref legacyBehavior>
+            <S.MenuLink> Explore </S.MenuLink>
+          </Link>
         </S.MenuNav>
       </MediaMatch>
 
@@ -58,7 +60,9 @@ const Menu = ({ username }: MenuProps) => {
           <Link href="/" passHref legacyBehavior>
             <S.MenuLink href="/"> Home </S.MenuLink>
           </Link>
-          <S.MenuLink href="#"> Explore </S.MenuLink>
+          <Link href="/games" passHref legacyBehavior>
+            <S.MenuLink> Explore </S.MenuLink>
+          </Link>
 
           {!!username && (
             <>
