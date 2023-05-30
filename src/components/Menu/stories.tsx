@@ -14,3 +14,6 @@ Basic.story = {
     layout: 'fullscreen'
   }
 }
+
+export const Logged: Story<MenuProps> = (args) => <Menu {...args} />
+Logged.args = { username: 'Nome Usuário' }

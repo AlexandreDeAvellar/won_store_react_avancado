@@ -1,10 +1,13 @@
 import * as S from './styles'
-import { menuIcon, searchIcon, shoppingCartIcon, closeIcon } from '../icons'
+import { menuIcon, searchIcon, closeIcon } from '../icons'
 import Logo from '../Logo'
 import MediaMatch from '../MediaMatch'
 import { useState } from 'react'
 import Button from '../Button'
 import Link from 'next/link'
+import CartDropdown from '../CartDropdown'
+import CartIcon from '../CartIcon'
+import UserDropdown from '../UserDropdown'
 
 export type MenuProps = {
   username?: string
@@ -40,15 +43,28 @@ const Menu = ({ username }: MenuProps) => {
 
       <S.MenuGroup>
         <S.IconWrapper aria-label="Search">{searchIcon}</S.IconWrapper>
-        <S.IconWrapper aria-label="Open Shopping Cart">{shoppingCartIcon}</S.IconWrapper>
-
-        {!username && (
+        <S.IconWrapper>
           <MediaMatch greaterThan="medium">
+            <CartDropdown />
+          </MediaMatch>
+          <MediaMatch lessThan="medium">
+            <Link href="/cart" passHref legacyBehavior>
+              <a>
+                <CartIcon />
+              </a>
+            </Link>
+          </MediaMatch>
+        </S.IconWrapper>
+
+        <MediaMatch greaterThan="medium">
+          {!username ? (
             <Link href="/sign-in" passHref legacyBehavior>
               <Button size="medium">Sign in</Button>
             </Link>
-          </MediaMatch>
-        )}
+          ) : (
+            <UserDropdown username={username} />
+          )}
+        </MediaMatch>
       </S.MenuGroup>
 
       <S.MenuFull aria-hidden={!isOpen} isOpen={isOpen}>
@@ -66,8 +82,12 @@ const Menu = ({ username }: MenuProps) => {
 
           {!!username && (
             <>
-              <S.MenuLink href="#"> My account </S.MenuLink>
-              <S.MenuLink href="#"> Wishlist </S.MenuLink>
+              <Link href="/profile/me" passHref legacyBehavior>
+                <S.MenuLink> My profile </S.MenuLink>
+              </Link>
+              <Link href="/profile/wishlist" passHref legacyBehavior>
+                <S.MenuLink> Wishlist </S.MenuLink>
+              </Link>
             </>
           )}
         </S.MenuNav>
