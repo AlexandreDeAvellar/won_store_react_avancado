@@ -3,6 +3,7 @@ import { Story, Meta } from '@storybook/react'
 
 const props: GameCardProps = {
   title: 'Red Dead Redemption 2',
+  slug: 'red-dead-redemption-2',
   developer: 'RockStar',
   img: '/img/red-dead-img.jpg',
   price: 'R$ 220,00',

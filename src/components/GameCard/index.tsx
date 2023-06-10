@@ -2,8 +2,10 @@ import Ribbon, { RibbonColors, RibbonSizes } from '../Ribbon'
 import Button from '../Button'
 import { addShoppingCartIcon, favoriteFilledIcon, favoriteIcon } from '../icons'
 import * as S from './styles'
+import Link from 'next/link'
 
 export type GameCardProps = {
+  slug: string
   title: string
   developer: string
   img: string
@@ -17,6 +19,7 @@ export type GameCardProps = {
 }
 
 const GameCard = ({
+  slug,
   developer,
   img,
   price,
@@ -34,14 +37,21 @@ const GameCard = ({
         {ribbon}
       </Ribbon>
     )}
-    <S.ImageBox>
-      <img src={img} alt={title} />
-    </S.ImageBox>
+
+    <Link href={`game/${slug}`} passHref legacyBehavior>
+      <S.ImageBox>
+        <img src={img} alt={title} />
+      </S.ImageBox>
+    </Link>
+
     <S.Content>
-      <S.Info>
-        <S.Title>{title}</S.Title>
-        <S.Developer>{developer}</S.Developer>
-      </S.Info>
+      <Link href={`game/${slug}`} passHref legacyBehavior>
+        <S.Info>
+          <S.Title>{title}</S.Title>
+          <S.Developer>{developer}</S.Developer>
+        </S.Info>
+      </Link>
+
       <S.FavButton onClick={onFav} role="button">
         {favorite ? (
           <S.FavIcon aria-label="Remove from Wishlist">{favoriteFilledIcon}</S.FavIcon>
@@ -49,6 +59,7 @@ const GameCard = ({
           <S.FavIcon aria-label="Add to Wishlist">{favoriteIcon}</S.FavIcon>
         )}
       </S.FavButton>
+
       <S.BuyBox>
         {!!promotionalPrice && <S.Price isPromotional>{price}</S.Price>}
         <S.Price>{promotionalPrice || price}</S.Price>

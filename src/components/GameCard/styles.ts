@@ -22,7 +22,7 @@ export const Content = styled.div`
   `}
 `
 
-export const ImageBox = styled.div`
+export const ImageBox = styled.a`
   img {
     width: 100%;
     height: 100%;
@@ -35,8 +35,9 @@ export const ImageBox = styled.div`
   animation: placeholderShimmer 1s linear infinite forwards;
 `
 
-export const Info = styled.div`
+export const Info = styled.a`
   max-width: calc(100% - 2.5rem);
+  text-decoration: none;
   img {
     width: 100%;
     height: 100%;

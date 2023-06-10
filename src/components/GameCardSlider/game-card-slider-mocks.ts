@@ -3,6 +3,7 @@ import { GameCardProps } from 'components/GameCard'
 export const gameCardProps: GameCardProps[] = [
   {
     title: 'Population Zero',
+    slug: 'population-zero',
     developer: 'Rockstar Games',
     img: 'https://source.unsplash.com/user/willianjusten/300x140',
     price: 'R$ 235,00',
@@ -10,6 +11,7 @@ export const gameCardProps: GameCardProps[] = [
   },
   {
     title: 'Population Zero',
+    slug: 'population-zero',
     developer: 'Rockstar Games',
     img: 'https://source.unsplash.com/user/willianjusten/300x141',
     price: 'R$ 235,00',
@@ -17,6 +19,7 @@ export const gameCardProps: GameCardProps[] = [
   },
   {
     title: 'Population Zero',
+    slug: 'population-zero',
     developer: 'Rockstar Games',
     img: 'https://source.unsplash.com/user/willianjusten/300x142',
     price: 'R$ 235,00',
@@ -24,6 +27,7 @@ export const gameCardProps: GameCardProps[] = [
   },
   {
     title: 'Population Zero',
+    slug: 'population-zero',
     developer: 'Rockstar Games',
     img: 'https://source.unsplash.com/user/willianjusten/300x143',
     price: 'R$ 235,00',
@@ -31,6 +35,7 @@ export const gameCardProps: GameCardProps[] = [
   },
   {
     title: 'Population Zero',
+    slug: 'population-zero',
     developer: 'Rockstar Games',
     img: 'https://source.unsplash.com/user/willianjusten/300x144',
     price: 'R$ 235,00',
@@ -38,6 +43,7 @@ export const gameCardProps: GameCardProps[] = [
   },
   {
     title: 'Population Zero',
+    slug: 'population-zero',
     developer: 'Rockstar Games',
     img: 'https://source.unsplash.com/user/willianjusten/300x145',
     price: 'R$ 235,00',

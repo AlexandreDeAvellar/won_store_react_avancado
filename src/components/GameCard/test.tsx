@@ -5,6 +5,7 @@ import theme from '../../styles/theme'
 
 const props: GameCardProps = {
   title: 'Red Dead Redemption 2',
+  slug: 'red-dead-redemption-2',
   developer: 'RockStar',
   img: '/img/red-dead-img.jpg',
   price: 'R$ 200,00'
@@ -16,6 +17,7 @@ describe('<GameCard />', () => {
     expect(screen.getByRole('heading', { name: props.title })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: props.developer })).toBeInTheDocument()
     expect(screen.getByRole('img')).toHaveAttribute('src', props.img)
+    expect(screen.getByRole('link', { name: props.title })).toHaveAttribute('href', `game/${props.slug}`)
     expect(screen.getByText(props.price)).toBeInTheDocument()
   })
 
