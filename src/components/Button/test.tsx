@@ -76,7 +76,6 @@ describe('<Button />', () => {
       background: 'none',
       color: `${theme.colors.primary}`
     })
-
-    expect(screen.getByRole('link', { name: /buy now/i })).toHaveStyleRule('background', 'none', { modifiers: ':hover' })
+    expect(screen.getByRole('link', { name: /buy now/i })).toHaveStyleRule('background', 'none', { modifier: ':hover' })
   })
 })
