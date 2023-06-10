@@ -9,7 +9,7 @@ export const homeTemplateProps: HomeTemplateProps = {
   mostPopularGames: [],
   mostPopularHighLight: highlightProps,
   newGames: [],
-  upcommingGames: [],
-  upcommingHighlight: highlightProps,
-  upcommingMoreGames: []
+  upcomingGames: [],
+  upcomingHighlight: highlightProps,
+  upcomingMoreGames: []
 }
