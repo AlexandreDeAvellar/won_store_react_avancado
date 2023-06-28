@@ -1,33 +1,53 @@
-// import 'dotenv/config'
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import { GameDetailsProps } from '../../../components/GameDetails'
 import { GameTemplateProps } from '../../../templates/Game/index'
 import { currencyFormat } from '../../../utils/format'
 
 const host = process.env.NEXT_PUBLIC_HOST + ':1337'
 
-type Name = { attributes: { name: string } }
-type Gallery = { attributes: { src: string; label: string } }
+export type DataAttributeNAME = { data: [{ attributes: { name: string } }] }
 
-export const gameBySlugTransform = (data: any): GameTemplateProps => {
-  const game = data?.games?.data[0]?.attributes
+export type GameBySlugGraphqlProps = {
+  data: [
+    {
+      attributes: {
+        name: string
+        short_description: string
+        description: string
+        price: number
+        rating: 'BR0' | 'BR10' | 'BR12' | 'BR14' | 'BR16' | 'BR18'
+        release_date: string
+        gallery: { data: [{ attributes: { src: string; label: string } }] }
+        cover: { data: { attributes: { src: string } } }
+        developers: DataAttributeNAME
+        publisher: DataAttributeNAME
+        categories: DataAttributeNAME
+        platforms: { data: [{ attributes: { name: 'windows' | 'linux' | 'mac' } }] }
+      }
+    }
+  ]
+}
+
+export const gameBySlugTransform = ({ data }: GameBySlugGraphqlProps): GameTemplateProps => {
+  const game = data[0].attributes
 
   const cover = host + game.cover.data.attributes.src
   const description = game.description
-  const details = {
+  const details: GameDetailsProps = {
     developer: game.developers.data[0].attributes.name,
-    genres: game.categories.data.map((e: Name) => e.attributes.name),
-    platforms: game.platforms.data.map((e: Name) => e.attributes.name),
+    genres: game.categories.data.map((e) => e.attributes.name),
+    platforms: game.platforms.data.map((e) => e.attributes.name),
     publisher: game.developers.data[0].attributes.name,
     rating: game.rating,
     releaseDate: game.release_date
   }
   const gameInfo = { title: game.name, description: game.short_description, price: currencyFormat(game.price) }
   const upcomingHighlight = { title: '', backgroundImage: '', buttonLabel: '', buttonLink: '', subtitle: '' }
-  const gallery = game.gallery.data.map((e: Gallery) => ({
+  const gallery = game.gallery.data.map((e) => ({
     src: host + e.attributes.src,
     label: e.attributes.label
   }))
 
-  return { cover, description, details, gameInfo, recommendedGames: [], upcomingGames: [], upcomingHighlight, gallery: gallery }
+  const recommendedTitle = ''
+
+  return { recommendedTitle, cover, description, details, gameInfo, recommendedGames: [], upcomingGames: [], upcomingHighlight, gallery: gallery }
 }
