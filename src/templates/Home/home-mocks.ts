@@ -11,5 +11,8 @@ export const homeTemplateProps: HomeTemplateProps = {
   newGames: [],
   upcomingGames: [],
   upcomingHighlight: highlightProps,
-  upcomingMoreGames: []
+  freeGamesTitle: 'Títle',
+  newGamesTitle: 'Títle',
+  popularGamesTitle: 'Títle',
+  upcomingTitle: 'Títle'
 }
