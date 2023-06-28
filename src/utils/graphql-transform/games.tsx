@@ -2,7 +2,33 @@
 import { currencyFormat } from '../../utils/format'
 import { GameCardProps } from '../../components/GameCard'
 
-export const gameCardTransform = (data: any): GameCardProps[] => {
+export type GameCardGraphqlProps = {
+  data: [
+    {
+      attributes: {
+        name: string
+        slug: string
+        cover: {
+          data: {
+            attributes: {
+              url: string
+            }
+          }
+        }
+        developers: {
+          data: {
+            attributes: {
+              name: string
+            }
+          }
+        }
+        price: number
+      }
+    }
+  ]
+}
+
+export const gameCardTransform = ({ data }: GameCardGraphqlProps): GameCardProps[] => {
   const gameCards = data.map((r: any) => ({
     title: r.attributes.name,
     slug: r.attributes.slug,
