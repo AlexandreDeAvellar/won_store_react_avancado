@@ -3,6 +3,8 @@ import media from 'styled-media-query'
 import * as BannerStyles from '../Banner/styles'
 
 export const Wrapper = styled.section`
+  height: 65rem;
+
   ${({ theme }) => css`
     .slick-dots {
       list-style: none;
