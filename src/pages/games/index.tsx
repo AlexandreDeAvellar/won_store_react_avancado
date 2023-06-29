@@ -14,7 +14,7 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      games: gameCardTransform(data?.games?.data),
+      games: gameCardTransform(data?.games),
       filterItems: explorerSidebarItemProps
     }
   }

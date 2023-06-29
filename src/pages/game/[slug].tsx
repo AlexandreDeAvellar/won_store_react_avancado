@@ -1,12 +1,18 @@
 import Game, { GameTemplateProps } from '../../templates/Game'
 
 import { useRouter } from 'next/router'
+import { GetStaticProps } from 'next'
 
 import { initializeApollo } from '../../utils/apollo'
-import { QUERY_GAME_BY_SLUG } from '../../graphql/queries/game-by-slug'
-import { QUERY_GAMES } from 'graphql/queries/games'
-import { GetStaticProps } from 'next'
+
 import { gameBySlugTransform } from '../../utils/graphql-transform/game-by-slug/game-by-slug'
+import { recommendedTransform } from '../../utils/graphql-transform/recommended'
+import { upcomingTransform } from '../../utils/graphql-transform/upcoming'
+
+import { QUERY_GAME_BY_SLUG } from '../../graphql/queries/game-by-slug'
+import { QUERY_GAMES } from '../../graphql/queries/games'
+import { QUERY_RECOMMENDED } from '../../graphql/queries/recommended'
+import { QUERY_UPCOMING } from '../../graphql/queries/upcoming'
 
 const apolloClient = initializeApollo()
 
@@ -27,15 +33,28 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const { data: recommended } = await apolloClient.query({ query: QUERY_RECOMMENDED })
+  const { recommendedGames, recommendedTitle } = recommendedTransform(recommended?.recommended)
+
   const { data } = await apolloClient.query({ query: QUERY_GAME_BY_SLUG, variables: { slug: `${params?.slug}` } })
-  const game = gameBySlugTransform(data)
+  const game = gameBySlugTransform(data.games)
+
+  const { data: upcomming } = await apolloClient.query({ query: QUERY_UPCOMING, variables: { date: '2023-01-01' } })
+  const { upcomingGames, upcomingHighlight } = upcomingTransform({
+    upcomingGames: upcomming.upcomingGames,
+    upcomingGamesHighlight: upcomming.showcase.data.attributes.upcomingGamesHighlight.highlight
+  })
 
   if (!data.games.data.length) return { notFound: true }
 
   return {
     props: {
       revalidate: 60,
-      ...game
+      ...game,
+      recommendedGames,
+      recommendedTitle,
+      upcomingGames,
+      upcomingHighlight
     }
   }
 }
