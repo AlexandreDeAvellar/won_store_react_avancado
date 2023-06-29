@@ -9,7 +9,8 @@ jest.mock('../../components/Showcase', () => ({ __esModule: true, default: jest.
 const props: WishlistTemplateProps = {
   games: gameCardProps,
   recommendedGames: gameCardProps,
-  recommendedHighlight: highlightProps
+  recommendedHighlight: highlightProps,
+  recommendedTitle: 'You may like these games'
 }
 
 describe('<Wishlist />', () => {
@@ -21,7 +22,7 @@ describe('<Wishlist />', () => {
     expect(screen.getAllByText(/population zero/i)).toHaveLength(6)
   })
   it('should render empty when there are no games', () => {
-    renderWithTheme(<Wishlist recommendedGames={props.recommendedGames} recommendedHighlight={props.recommendedHighlight} />)
+    renderWithTheme(<Wishlist {...props} games={[]} />)
 
     expect(screen.queryByText(/population zero/i)).not.toBeInTheDocument()
 
