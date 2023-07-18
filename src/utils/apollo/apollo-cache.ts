@@ -5,7 +5,7 @@ export const apolloCache = new InMemoryCache({
   typePolicies: {
     Query: {
       fields: {
-        games: concatPagination(['filters'])
+        games: concatPagination(['filters', 'pagination'])
       }
     }
   }
