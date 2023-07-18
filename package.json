@@ -1,6 +1,6 @@
 {
   "name": "won_store_react_avancado",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
