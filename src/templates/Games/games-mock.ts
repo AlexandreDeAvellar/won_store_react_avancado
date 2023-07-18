@@ -1,16 +1,30 @@
 import { QUERY_GAMES } from '../../graphql/queries/games'
 
-export const mockGames = {
+export const mockNoGames = {
   request: {
     query: QUERY_GAMES,
-    variables: { limit: 4, start: 0 }
+    variables: { limit: 4, start: 0, where: {} }
   },
   result: {
     data: {
+      gamesConnection: { meta: { pagination: { total: 0 } } }
+    }
+  }
+}
+
+export const mockGames = {
+  request: {
+    query: QUERY_GAMES,
+    variables: { limit: 4, start: 0, where: {} }
+  },
+  result: {
+    data: {
+      gamesConnection: { meta: { pagination: { total: 2 } } },
       games: {
         data: [
           {
             attributes: {
+              id: '1',
               name: 'Sample Game',
               slug: 'sample-game',
               cover: {
@@ -47,10 +61,12 @@ export const mockMoreGames = {
   },
   result: {
     data: {
+      gamesConnection: { meta: { pagination: { total: 2 } } },
       games: {
         data: [
           {
             attributes: {
+              id: '2',
               name: 'More Game',
               slug: 'more-game',
               cover: {

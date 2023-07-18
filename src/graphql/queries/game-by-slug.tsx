@@ -5,6 +5,7 @@ export const QUERY_GAME_BY_SLUG = gql`
     games(filters: { slug: { eq: $slug } }) {
       data {
         attributes {
+          id
           name
           short_description
           description
