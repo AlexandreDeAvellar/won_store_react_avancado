@@ -18,6 +18,7 @@ export const QUERY_GAMES = gql`
         attributes {
           ...GameFragment
         }
+        id
       }
     }
   }
