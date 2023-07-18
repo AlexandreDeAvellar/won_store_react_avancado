@@ -9,7 +9,7 @@ export default function Index(props: HomeTemplateProps) {
 
 export async function getStaticProps() {
   const apolloClient = initializeApollo()
-  const { data } = await apolloClient.query({ query: QUERY_HOME, variables: { date: '2023-01-01' } })
+  const { data } = await apolloClient.query({ query: QUERY_HOME, variables: { date: '2023-01-01' }, fetchPolicy: 'no-cache' })
   const banners = bannerTransform(data?.banners)
   const section = sectionsTransform(data?.sections)
 
@@ -34,6 +34,7 @@ export async function getStaticProps() {
   }
 
   return {
-    props: { revalidate: 60, banners, ...games, ...titles, ...highlights }
+    revalidate: 60,
+    props: { banners, ...games, ...titles, ...highlights }
   }
 }

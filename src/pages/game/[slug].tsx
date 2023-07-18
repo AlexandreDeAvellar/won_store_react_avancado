@@ -36,7 +36,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { data: recommended } = await apolloClient.query({ query: QUERY_RECOMMENDED })
   const { recommendedGames, recommendedTitle } = recommendedTransform(recommended?.recommended)
 
-  const { data } = await apolloClient.query({ query: QUERY_GAME_BY_SLUG, variables: { slug: `${params?.slug}` } })
+  const { data } = await apolloClient.query({ query: QUERY_GAME_BY_SLUG, variables: { slug: `${params?.slug}` }, fetchPolicy: 'no-cache' })
   const game = gameBySlugTransform(data.games)
 
   const { data: upcomming } = await apolloClient.query({ query: QUERY_UPCOMING, variables: { date: '2023-01-01' } })
@@ -48,8 +48,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   if (!data.games.data.length) return { notFound: true }
 
   return {
+    revalidate: 60,
     props: {
-      revalidate: 60,
       ...game,
       recommendedGames,
       recommendedTitle,
