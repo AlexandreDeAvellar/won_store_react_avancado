@@ -11,8 +11,14 @@ export const Main = styled(Container)`
     `}
   `}
 `
-
 export const ShowMore = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10rem;
+`
+
+export const ShowMoreButton = styled.div`
   ${({ theme }) => css`
     color: ${theme.colors.white};
     text-align: center;
@@ -24,6 +30,10 @@ export const ShowMore = styled.div`
       color: ${theme.colors.primary};
     }
   `}
+`
+
+export const ShowMoreLoading = styled.img`
+  width: 4rem;
 `
 
 export const ArrowDown = styled.span``
