@@ -30,4 +30,17 @@ describe('<Dropdown />', () => {
     await waitFor(() => expect(content).toHaveStyle({ opacity: 1 }))
     expect(content.getAttribute('aria-hidden')).toBe('false')
   })
+
+  it('should handle open/close dropdown when clicking on overlay', async () => {
+    const container = screen.getByText(/content/i).parentElement!
+    const overlay = container.nextElementSibling!
+
+    expect(overlay).toHaveStyle({ opacity: 0 })
+
+    await waitFor(() => userEvent.click(screen.getByLabelText(/toogle dropdown/i)))
+    expect(overlay).toHaveStyle({ opacity: 1 })
+
+    await waitFor(() => userEvent.click(overlay))
+    expect(overlay).toHaveStyle({ opacity: 0 })
+  })
 })
