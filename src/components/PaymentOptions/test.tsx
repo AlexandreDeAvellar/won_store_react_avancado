@@ -1,7 +1,7 @@
-import { screen, waitFor } from '@testing-library/react'
+import { waitFor } from '@testing-library/react'
 
 import PaymentOptions from '.'
-import { renderWithTheme } from '../../utils/tests/helpers'
+import { render as renderWithTheme, screen } from '../../utils/test-utils'
 import { paymentCardProps } from './payment-options-mocks'
 import { userEvent } from '@storybook/testing-library'
 

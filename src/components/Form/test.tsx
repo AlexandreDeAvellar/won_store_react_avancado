@@ -1,4 +1,4 @@
-import { renderWithTheme } from '../../utils/tests/helpers'
+import { render as renderWithTheme } from '../../utils/test-utils'
 
 import { FormLink, FormWrapper } from '.'
 

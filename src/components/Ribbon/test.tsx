@@ -1,6 +1,5 @@
-import { screen } from '@testing-library/react'
 import Ribbon from '.'
-import { renderWithTheme } from '../../utils/tests/helpers'
+import { render as renderWithTheme, screen } from '../../utils/test-utils'
 
 describe('<Ribbon />', () => {
   it('should render the text correctly', () => {

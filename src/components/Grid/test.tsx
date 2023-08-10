@@ -1,5 +1,5 @@
 import { Grid } from '.'
-import { renderWithTheme } from '../../utils/tests/helpers'
+import { render as renderWithTheme } from '../../utils/test-utils'
 
 describe('<Grid />', () => {
   it('should render the heading', () => {

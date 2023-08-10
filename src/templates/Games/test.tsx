@@ -1,8 +1,9 @@
-import { fireEvent, screen } from '@testing-library/react'
+import { fireEvent } from '@testing-library/react'
 import { MockedProvider } from '@apollo/client/testing'
 
-import { renderWithTheme } from '../../utils/tests/helpers'
 import { apolloCache } from '../../utils/apollo/apollo-cache'
+
+import { render as renderWithTheme, screen } from '../../utils/test-utils'
 
 import { explorerSidebarItemProps } from '../../components/ExploreSidebar/explorer-sidebar-mocks'
 import { mockGames, mockMoreGames, mockNoGames } from './games-mock'

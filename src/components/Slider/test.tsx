@@ -1,8 +1,7 @@
-import { screen } from '@testing-library/react'
 import '../../../.jest/match-media-mock'
 
 import Slider, { SliderSettings } from '.'
-import { renderWithTheme } from '../../utils/tests/helpers'
+import { render as renderWithTheme, screen } from '../../utils/test-utils'
 
 const horizontalSettings: SliderSettings = {
   dots: true,

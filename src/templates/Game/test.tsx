@@ -1,5 +1,3 @@
-import { screen } from '@testing-library/react'
-
 import { galleryProps } from '../../components/Gallery/gallery-mocks'
 import { gameInfoProps } from '../../components/GameInfo/game-info-mocks'
 import { gameDetailsProps } from '../../components/GameDetails/game-details-mocks'
@@ -7,7 +5,7 @@ import { gameCardProps } from '../../components/GameCardSlider/game-card-slider-
 import { highlightProps } from '../../components/Highlight/highlight-mocks'
 
 import Game, { GameTemplateProps } from '.'
-import { renderWithTheme } from '../../utils/tests/helpers'
+import { render as renderWithTheme, screen } from '../../utils/test-utils'
 
 const props: GameTemplateProps = {
   cover: 'bg-image.jpg',

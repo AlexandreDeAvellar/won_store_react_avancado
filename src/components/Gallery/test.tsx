@@ -1,7 +1,7 @@
 import '../../../.jest/match-media-mock'
-import { fireEvent, screen } from '@testing-library/react'
+import { fireEvent } from '@testing-library/react'
 import Gallery from '.'
-import { renderWithTheme } from '../../utils/tests/helpers'
+import { render as renderWithTheme, screen } from '../../utils/test-utils'
 import { galleryProps } from './gallery-mocks'
 
 const mockItems = galleryProps.slice(0, 2)

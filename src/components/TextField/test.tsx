@@ -1,7 +1,7 @@
-import { screen, waitFor } from '@testing-library/react'
+import { waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
-import { renderWithTheme } from '../../utils/tests/helpers'
+import { render as renderWithTheme, screen } from '../../utils/test-utils'
 
 import TextField, { TextFieldProps } from '.'
 import { mailIcon } from '../icons/mail-icon'

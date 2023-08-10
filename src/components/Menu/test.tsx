@@ -1,5 +1,5 @@
-import { fireEvent, screen } from '@testing-library/react'
-import { renderWithTheme } from '../../utils/tests/helpers'
+import { fireEvent } from '@testing-library/react'
+import { render as renderWithTheme, screen } from '../../utils/test-utils'
 import Menu from '.'
 
 describe('<Menu />', () => {

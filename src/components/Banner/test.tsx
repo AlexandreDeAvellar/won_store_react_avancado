@@ -1,7 +1,6 @@
-import { screen } from '@testing-library/react'
 import Banner, { BannerProps } from '.'
 import { bannerProps } from './banner-mocks'
-import { renderWithTheme } from '../../utils/tests/helpers'
+import { render as renderWithTheme, screen } from '../../utils/test-utils'
 
 const props: BannerProps = bannerProps
 

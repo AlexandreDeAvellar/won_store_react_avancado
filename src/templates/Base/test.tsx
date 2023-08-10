@@ -1,6 +1,5 @@
-import { screen } from '@testing-library/react'
 import Base from '.'
-import { renderWithTheme } from '../../utils/tests/helpers'
+import { render as renderWithTheme, screen } from '../../utils/test-utils'
 
 jest.mock('../../components/Menu', () => ({ __esModule: true, default: jest.fn(() => <div data-testId="Mock Menu"></div>) }))
 jest.mock('../../components/Footer', () => ({ __esModule: true, default: jest.fn(() => <div data-testId="Mock Footer"></div>) }))

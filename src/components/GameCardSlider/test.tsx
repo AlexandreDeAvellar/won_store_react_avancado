@@ -1,5 +1,5 @@
 import '../../../.jest/match-media-mock'
-import { renderWithTheme } from '../../utils/tests/helpers'
+import { render as renderWithTheme } from '../../utils/test-utils'
 
 import GameCardSlider from '.'
 import { gameCardProps } from './game-card-slider-mocks'

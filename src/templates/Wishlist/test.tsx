@@ -1,6 +1,5 @@
-import { screen } from '@testing-library/react'
 import Wishlist, { WishlistTemplateProps } from '.'
-import { renderWithTheme } from '../../utils/tests/helpers'
+import { render as renderWithTheme, screen } from '../../utils/test-utils'
 import { gameCardProps } from '../../components/GameCardSlider/game-card-slider-mocks'
 import { highlightProps } from '../../components/Highlight/highlight-mocks'
 

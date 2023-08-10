@@ -1,6 +1,6 @@
-import { screen, waitFor } from '@testing-library/react'
+import { waitFor } from '@testing-library/react'
 import Radio, { RadioProps } from '.'
-import { renderWithTheme } from '../../utils/tests/helpers'
+import { render as renderWithTheme, screen } from '../../utils/test-utils'
 import theme from '../../styles/theme'
 import { userEvent } from '@storybook/testing-library'
 

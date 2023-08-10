@@ -1,8 +1,7 @@
 import '../../../.jest/match-media-mock'
 
-import { screen } from '@testing-library/react'
 import Showcase, { ShowCaseProps } from '.'
-import { renderWithTheme } from '../../utils/tests/helpers'
+import { render as renderWithTheme, screen } from '../../utils/test-utils'
 import { highlightProps } from '../Highlight/highlight-mocks'
 import { gameCardProps } from '../GameCardSlider/game-card-slider-mocks'
 

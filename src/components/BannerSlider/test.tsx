@@ -1,6 +1,6 @@
 import '../../../.jest/match-media-mock'
-import { screen } from '@testing-library/react'
-import { renderWithTheme } from '../../utils/tests/helpers'
+
+import { render as renderWithTheme, screen } from '../../utils/test-utils'
 
 import BannerSlider from '.'
 import { BannerProps } from '../Banner'

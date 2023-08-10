@@ -1,7 +1,5 @@
-import { screen } from '@testing-library/react'
-
 import GameDetails, { GameDetailsProps } from '.'
-import { renderWithTheme } from '../../utils/tests/helpers'
+import { render as renderWithTheme, screen } from '../../utils/test-utils'
 
 const props: GameDetailsProps = {
   developer: 'Different Tales',
