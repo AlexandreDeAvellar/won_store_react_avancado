@@ -8,6 +8,7 @@ import theme from '../styles/theme'
 import GlobalStyles from 'styles/global'
 import { useApollo } from '../utils/apollo'
 import 'styles/globals.css'
+import { CartProvider } from '../hooks/use-cart'
 
 export default function App({ Component, pageProps }: AppProps) {
   const client = useApollo(pageProps.initialApolloState)
@@ -15,10 +16,12 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <ApolloProvider client={client}>
       <ThemeProvider theme={theme}>
-        <Head>
-          <title>Won Games</title>
-          <meta name="description" content="The best Game Store in the world!" />
-        </Head>
+        <CartProvider>
+          <Head>
+            <title>Won Games</title>
+            <meta name="description" content="The best Game Store in the world!" />
+          </Head>
+        </CartProvider>
         <GlobalStyles />
         <Component {...pageProps} />
       </ThemeProvider>
