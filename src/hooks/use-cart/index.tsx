@@ -3,16 +3,9 @@ import { useQueryGames } from '../../graphql/queries/games'
 
 import { getStorageItem } from '../../utils/localStorage'
 import { currencyFormat } from '../../utils/format'
-import { cartTransform } from '../../utils/graphql-transform'
+import { CartItem, cartTransform } from '../../utils/graphql-transform'
 
 const CART_KEYS = 'cartItems'
-
-export type CartItem = {
-  id: string
-  img: string
-  title: string
-  price: string
-}
 
 export type CartContextProps = {
   items: CartItem[]
