@@ -1,4 +1,5 @@
 export * from './control-icon'
+export * from './remove-shopping-cart-icon'
 export * from './add-shopping-cart-icon'
 export * from './add-icons'
 export * from './shopping-cart-icon'
