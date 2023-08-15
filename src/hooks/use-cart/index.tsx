@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { useQueryGames } from '../../graphql/queries/games'
 
-import { getStorageItem } from '../../utils/localStorage'
+import { getStorageItem, setStorageItem } from '../../utils/localStorage'
 import { currencyFormat } from '../../utils/format'
 import { CartItem, cartTransform } from '../../utils/graphql-transform'
 
@@ -55,15 +55,17 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     return acc + game.attributes.price
   }, 0)
 
-  const isInCart = (id: string) => (id ? cartItems.includes(id) : false)
+  const isInCart = (id: string) => (id && cartItems.includes(id) ? true : false)
 
   const addToCart = (id: string) => {
     !cartItems.includes(id) && setCartItems([...cartItems, id])
+    setStorageItem(CART_KEYS, [...cartItems, id])
   }
 
   const removeFromCart = (id: string) => {
     const newCartItems = cartItems.filter((item_id) => item_id !== id)
     setCartItems(newCartItems)
+    setStorageItem(CART_KEYS, [...newCartItems])
   }
 
   const clearCart = () => {
