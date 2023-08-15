@@ -20,6 +20,7 @@ export const QUERY_HOME = gql`
         attributes {
           ...GameFragment
         }
+        id
       }
     }
     upcomingGames: games(filters: { release_date: { gt: $date } }, sort: "release_date:asc", pagination: { limit: 10 }) {
@@ -27,6 +28,7 @@ export const QUERY_HOME = gql`
         attributes {
           ...GameFragment
         }
+        id
       }
     }
     freeGames: games(filters: { price: { eq: 0 } }, sort: "release_date:desc", pagination: { limit: 10 }) {
@@ -34,6 +36,7 @@ export const QUERY_HOME = gql`
         attributes {
           ...GameFragment
         }
+        id
       }
     }
 
@@ -56,6 +59,7 @@ export const QUERY_HOME = gql`
                 attributes {
                   ...GameFragment
                 }
+                id
               }
             }
           }

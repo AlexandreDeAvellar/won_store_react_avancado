@@ -23,6 +23,7 @@ export type GameBySlugGraphqlProps = {
         categories: DataAttributeNAME
         platforms: { data: [{ attributes: { name: 'windows' | 'linux' | 'mac' } }] }
       }
+      id: string
     }
   ]
 }
@@ -40,7 +41,7 @@ export const gameBySlugTransform = ({ data }: GameBySlugGraphqlProps): GameTempl
     rating: game.rating,
     releaseDate: game.release_date
   }
-  const gameInfo = { title: game.name, description: game.short_description, price: currencyFormat(game.price) }
+  const gameInfo = { id: '', title: game.name, description: game.short_description, price: currencyFormat(game.price) }
   const upcomingHighlight = { title: '', backgroundImage: '', buttonLabel: '', buttonLink: '', subtitle: '' }
   const gallery = game.gallery.data.map((e) => ({
     src: host + e.attributes.src,

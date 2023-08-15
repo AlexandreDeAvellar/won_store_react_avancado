@@ -12,6 +12,7 @@ export const QUERY_UPCOMING = gql`
         attributes {
           ...GameFragment
         }
+        id
       }
     }
     showcase: home {
