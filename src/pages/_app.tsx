@@ -21,9 +21,9 @@ export default function App({ Component, pageProps }: AppProps) {
             <title>Won Games</title>
             <meta name="description" content="The best Game Store in the world!" />
           </Head>
+          <Component {...pageProps} />
         </CartProvider>
         <GlobalStyles />
-        <Component {...pageProps} />
       </ThemeProvider>
     </ApolloProvider>
   )
