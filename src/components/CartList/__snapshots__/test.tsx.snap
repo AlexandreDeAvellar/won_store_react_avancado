@@ -141,8 +141,8 @@ exports[`<CartList /> should render the cart list 1`] = `
         class="c3"
       >
         <img
-          alt="Red Dead Redemption 2"
-          src="https://source.unsplash.com/user/willianjusten/151x70"
+          alt="Enter the Gungeon"
+          src="undefined:1337/uploads/enter_the_gungeon_46f4fe4c68.jpg"
         />
       </div>
       <div
@@ -151,12 +151,12 @@ exports[`<CartList /> should render the cart list 1`] = `
         <h3
           class="c5"
         >
-          Red Dead Redemption 2
+          Enter the Gungeon
         </h3>
         <div
           class="c6"
         >
-          R$ 215,00
+          $27.99
         </div>
       </div>
     </div>
@@ -171,8 +171,8 @@ exports[`<CartList /> should render the cart list 1`] = `
         class="c3"
       >
         <img
-          alt="Borderlands 3"
-          src="https://source.unsplash.com/user/willianjusten/151x70"
+          alt="The Witcher: Enhanced Edition"
+          src="undefined:1337/uploads/the_witcher_fe844be564.jpg"
         />
       </div>
       <div
@@ -181,12 +181,12 @@ exports[`<CartList /> should render the cart list 1`] = `
         <h3
           class="c5"
         >
-          Borderlands 3
+          The Witcher: Enhanced Edition
         </h3>
         <div
           class="c6"
         >
-          R$ 215,00
+          $10.50
         </div>
       </div>
     </div>
@@ -200,7 +200,7 @@ exports[`<CartList /> should render the cart list 1`] = `
     <span
       class="c8"
     >
-      R$ 330,00
+      R$ 38,49
     </span>
   </div>
 </div>

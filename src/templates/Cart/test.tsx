@@ -3,15 +3,12 @@ import '../../../.jest/match-media-mock'
 import { render as renderWithTheme, screen } from '../../utils/test-utils'
 
 import { gameCardProps } from '../../components/GameCardSlider/game-card-slider-mocks'
-import { gameItemProps } from '../../components/GameItem/game-item-mocks'
 import { highlightProps } from '../../components/Highlight/highlight-mocks'
 import { paymentCardProps } from '../../components/PaymentOptions/payment-options-mocks'
 
 import Cart, { CartProps } from '.'
 
 const props: CartProps = {
-  items: gameItemProps,
-  total: '$ 430,00',
   cards: paymentCardProps,
   recommendedHighlight: highlightProps,
   recommendedGames: gameCardProps,
@@ -62,11 +59,5 @@ describe('<Cart />', () => {
     expect(screen.getByTestId('Mock PaymentOptions')).toBeInTheDocument()
     expect(screen.getByTestId('Mock Showcase')).toBeInTheDocument()
     expect(screen.queryByTestId('Mock Empty')).not.toBeInTheDocument()
-  })
-
-  it('should render empty section if there are no items', () => {
-    renderWithTheme(<Cart {...props} items={[]} />)
-
-    expect(screen.getByTestId('Mock Empty')).toBeInTheDocument()
   })
 })
