@@ -2,6 +2,7 @@ import { GameCardProps } from 'components/GameCard'
 
 export const gameCardProps: GameCardProps[] = [
   {
+    id: '1',
     title: 'Population Zero',
     slug: 'population-zero',
     developer: 'Rockstar Games',
@@ -10,6 +11,7 @@ export const gameCardProps: GameCardProps[] = [
     promotionalPrice: 'R$ 215,00'
   },
   {
+    id: '2',
     title: 'Population Zero',
     slug: 'population-zero',
     developer: 'Rockstar Games',
@@ -18,6 +20,7 @@ export const gameCardProps: GameCardProps[] = [
     promotionalPrice: 'R$ 215,00'
   },
   {
+    id: '3',
     title: 'Population Zero',
     slug: 'population-zero',
     developer: 'Rockstar Games',
@@ -26,6 +29,7 @@ export const gameCardProps: GameCardProps[] = [
     promotionalPrice: 'R$ 215,00'
   },
   {
+    id: '4',
     title: 'Population Zero',
     slug: 'population-zero',
     developer: 'Rockstar Games',
@@ -34,6 +38,7 @@ export const gameCardProps: GameCardProps[] = [
     promotionalPrice: 'R$ 215,00'
   },
   {
+    id: '5',
     title: 'Population Zero',
     slug: 'population-zero',
     developer: 'Rockstar Games',
@@ -42,6 +47,7 @@ export const gameCardProps: GameCardProps[] = [
     promotionalPrice: 'R$ 215,00'
   },
   {
+    id: '6',
     title: 'Population Zero',
     slug: 'population-zero',
     developer: 'Rockstar Games',
