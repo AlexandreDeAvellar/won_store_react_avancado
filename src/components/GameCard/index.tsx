@@ -1,10 +1,11 @@
 import Ribbon, { RibbonColors, RibbonSizes } from '../Ribbon'
-import Button from '../Button'
-import { addShoppingCartIcon, favoriteFilledIcon, favoriteIcon } from '../icons'
+import { favoriteFilledIcon, favoriteIcon } from '../icons'
 import * as S from './styles'
 import Link from 'next/link'
+import { CartButton } from '../CartButton'
 
 export type GameCardProps = {
+  id: string
   slug: string
   title: string
   developer: string
@@ -19,6 +20,7 @@ export type GameCardProps = {
 }
 
 const GameCard = ({
+  id,
   slug,
   developer,
   img,
@@ -63,7 +65,7 @@ const GameCard = ({
       <S.BuyBox>
         {!!promotionalPrice && <S.Price isPromotional>{price}</S.Price>}
         <S.Price>{promotionalPrice || price}</S.Price>
-        <Button size="small" icon={addShoppingCartIcon} />
+        <CartButton id={id} />
       </S.BuyBox>
     </S.Content>
   </S.Wrapper>

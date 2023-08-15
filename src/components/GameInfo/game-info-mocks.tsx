@@ -1,6 +1,7 @@
 import { GameInfoProps } from '.'
 
 export const gameInfoProps: GameInfoProps = {
+  id: '1',
   title: 'Cyberpunk 2077',
   price: '59.00',
   description:

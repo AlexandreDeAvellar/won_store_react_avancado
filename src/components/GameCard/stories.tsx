@@ -1,7 +1,9 @@
+import { CartContextProps } from '../../hooks/use-cart'
 import GameCard, { GameCardProps } from '.'
 import { Story, Meta } from '@storybook/react'
 
 const props: GameCardProps = {
+  id: '1',
   title: 'Red Dead Redemption 2',
   slug: 'red-dead-redemption-2',
   developer: 'RockStar',
@@ -31,6 +33,16 @@ export const WithRibbon: Story<GameCardProps> = (args) => (
     <GameCard {...args} />
   </div>
 )
+
+export const IsInCart: Story<GameCardProps & CartContextProps> = (args) => (
+  <div style={{ width: '25rem' }}>
+    <GameCard {...args} />
+  </div>
+)
+
+IsInCart.args = {
+  isInCart: () => true
+}
 
 WithRibbon.args = {
   ribbon: '25% off',

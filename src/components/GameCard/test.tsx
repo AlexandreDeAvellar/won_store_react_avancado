@@ -4,6 +4,7 @@ import { render as renderWithTheme, screen } from '../../utils/test-utils'
 import theme from '../../styles/theme'
 
 const props: GameCardProps = {
+  id: '1',
   title: 'Red Dead Redemption 2',
   slug: 'red-dead-redemption-2',
   developer: 'RockStar',
