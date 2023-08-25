@@ -10,7 +10,7 @@ import CartIcon from '../CartIcon'
 import UserDropdown from '../UserDropdown'
 
 export type MenuProps = {
-  username?: string
+  username?: string | null
 }
 
 const Menu = ({ username }: MenuProps) => {
