@@ -5,7 +5,7 @@ import { useMutation } from '@apollo/client'
 import Button from '../Button'
 import TextField from '../TextField'
 
-import { FormLink, FormWrapper } from '../Form'
+import { FormLink, FormLoading, FormWrapper } from '../Form'
 import { accountCircleIcon, mailIcon, lockIcon } from '../icons'
 import { MUTATION_REGISTER } from '../../graphql/mutations/register'
 
@@ -18,7 +18,7 @@ export type FormSignUpValues = {
 const FormSignUp = () => {
   const [values, setValues] = useState<FormSignUpValues>({ username: '', email: '', password: '' })
 
-  const [createUser] = useMutation(MUTATION_REGISTER)
+  const [createUser, { loading }] = useMutation(MUTATION_REGISTER)
 
   const handleInput = (field: string, value: string) => {
     setValues((e) => ({ ...e, [field]: value }))
@@ -47,8 +47,8 @@ const FormSignUp = () => {
           onInputChange={(v) => handleInput('confirm-password', v)}
         />
 
-        <Button type="submit" size="large" fullWidth>
-          Sign up now
+        <Button type="submit" size="large" fullWidth disabled={loading}>
+          {loading ? <FormLoading /> : <span>Sign up now</span>}
         </Button>
 
         <FormLink>
