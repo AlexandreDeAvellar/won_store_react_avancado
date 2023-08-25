@@ -40,12 +40,13 @@ export const nextAuthOptions: NextAuthOptions = {
         token.accessToken = user.jwt
         token.id = user.id
         token.email = user.email
-        token.name = user.name
+        token.name = user.username
       }
       return Promise.resolve(token)
     },
     async session({ session, token }) {
       session.id = token.id as string
+      session.name = token.name as string
       session.jwt = token.accessToken as string
       return Promise.resolve(session)
     }
