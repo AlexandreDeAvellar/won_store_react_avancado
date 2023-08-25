@@ -1,6 +1,17 @@
 import FormSignIn from '.'
 import { render as renderWithTheme, screen } from '../../utils/test-utils'
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const useRouter = jest.spyOn(require('next/router'), 'useRouter')
+const push = jest.fn()
+
+useRouter.mockImplementation(() => ({
+  push,
+  query: '',
+  asPath: '',
+  route: '/'
+}))
+
 describe('<FormSignIn />', () => {
   it('should render the form', () => {
     renderWithTheme(<FormSignIn />)
