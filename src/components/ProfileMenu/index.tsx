@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { accountCircleIcon, listIcon, cardIcon, outInsideArrowIcon } from '../icons'
 
 import * as S from './styles'
+import { signOut } from 'next-auth/react'
 
 export type ProfileMenuProps = {
   activeLink?: '/profile/me' | '/profile/cards' | '/profile/orders' | string
@@ -30,12 +31,10 @@ const ProfileMenu = ({ activeLink }: ProfileMenuProps) => (
       </S.Link>
     </Link>
 
-    <Link href="/logout" passHref>
-      <S.Link>
-        <S.ExitToApp>{outInsideArrowIcon}</S.ExitToApp>
-        <S.Title>Sign out</S.Title>
-      </S.Link>
-    </Link>
+    <S.Link role="button" onClick={() => signOut({ redirect: false })}>
+      <S.ExitToApp>{outInsideArrowIcon}</S.ExitToApp>
+      <S.Title>Sign out</S.Title>
+    </S.Link>
   </S.Nav>
 )
 

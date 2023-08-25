@@ -37,6 +37,7 @@ export const Link = styled.a<LinkProps>`
     height: 16px;
   }
   ${({ theme, isActive }) => css`
+    cursor: pointer;
     background: ${theme.colors.white};
     color: ${theme.colors.black};
     text-decoration: none;

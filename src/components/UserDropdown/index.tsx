@@ -4,6 +4,7 @@ import { accountCircleIcon, favoriteIcon, outInsideArrowIcon, arrowDownIcon } fr
 import Dropdown from '../Dropdown'
 
 import * as S from './styles'
+import { signOut } from 'next-auth/react'
 
 export type UserDropdownProps = {
   username: string
@@ -34,12 +35,10 @@ const UserDropdown = ({ username }: UserDropdownProps) => (
           </S.Link>
         </Link>
 
-        <Link href="/logout" passHref>
-          <S.Link title="Sign out">
-            <S.ExitToApp>{outInsideArrowIcon}</S.ExitToApp>
-            <span>Sign out</span>
-          </S.Link>
-        </Link>
+        <S.Link title="Sign out" role="button" onClick={() => signOut({ redirect: false })}>
+          <S.ExitToApp>{outInsideArrowIcon}</S.ExitToApp>
+          <span>Sign out</span>
+        </S.Link>
       </S.Nav>
     </Dropdown>
   </S.Wrapper>
