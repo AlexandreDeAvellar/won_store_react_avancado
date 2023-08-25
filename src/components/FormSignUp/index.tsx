@@ -5,10 +5,12 @@ import { useMutation } from '@apollo/client'
 import Button from '../Button'
 import TextField from '../TextField'
 
-import { FormLink, FormLoading, FormWrapper } from '../Form'
+import { FormError, FormLink, FormLoading, FormWrapper } from '../Form'
 import { accountCircleIcon, mailIcon, lockIcon } from '../icons'
 import { MUTATION_REGISTER } from '../../graphql/mutations/register'
 import { signIn } from 'next-auth/react'
+
+import { FieldErros, signUpValidate } from '../../utils/validation'
 
 export type FormSignUpValues = {
   username: string
@@ -17,10 +19,14 @@ export type FormSignUpValues = {
 }
 
 const FormSignUp = () => {
+  const [formError, setFormError] = useState('')
+  const [fieldErros, setFieldErros] = useState<FieldErros>({})
   const [values, setValues] = useState<FormSignUpValues>({ username: '', email: '', password: '' })
 
   const [createUser, { error, loading }] = useMutation(MUTATION_REGISTER, {
-    onError: (err) => console.error(err),
+    onError: (err) => {
+      setFormError(err.message)
+    },
     onCompleted: () => {
       !error && signIn('credentials', { email: values.email, password: values.password, callbackUrl: '/' })
     }
@@ -32,6 +38,17 @@ const FormSignUp = () => {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault()
+    setFormError('')
+
+    const errors = signUpValidate(values)
+
+    if (Object.keys(errors).length) {
+      setFieldErros(errors)
+      return
+    }
+
+    setFieldErros({})
+
     createUser({
       variables: {
         input: { username: values.username, email: values.email, password: values.password }
@@ -41,16 +58,39 @@ const FormSignUp = () => {
 
   return (
     <FormWrapper>
+      {!!formError && <FormError>{formError}</FormError>}
       <form onSubmit={handleSubmit}>
-        <TextField name="username" placeholder="Username" type="text" icon={accountCircleIcon} onInputChange={(v) => handleInput('username', v)} />
-        <TextField name="email" placeholder="Email" type="email" icon={mailIcon} onInputChange={(v) => handleInput('email', v)} />
-        <TextField name="password" placeholder="Password" type="password" icon={lockIcon} onInputChange={(v) => handleInput('password', v)} />
         <TextField
-          name="confirm-password"
+          name="username"
+          placeholder="Username"
+          type="text"
+          icon={accountCircleIcon}
+          onInputChange={(v) => handleInput('username', v)}
+          error={fieldErros.username}
+        />
+        <TextField
+          name="email"
+          placeholder="Email"
+          type="email"
+          icon={mailIcon}
+          onInputChange={(v) => handleInput('email', v)}
+          error={fieldErros.email}
+        />
+        <TextField
+          name="password"
+          placeholder="Password"
+          type="password"
+          icon={lockIcon}
+          onInputChange={(v) => handleInput('password', v)}
+          error={fieldErros.password}
+        />
+        <TextField
+          name="confirm_password"
           placeholder="Confirm password"
           type="password"
           icon={lockIcon}
-          onInputChange={(v) => handleInput('confirm-password', v)}
+          onInputChange={(v) => handleInput('confirm_password', v)}
+          error={fieldErros.confirm_password}
         />
 
         <Button type="submit" size="large" fullWidth disabled={loading}>
