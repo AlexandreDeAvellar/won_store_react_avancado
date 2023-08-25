@@ -1,6 +1,12 @@
 import Base from '.'
 import { render as renderWithTheme, screen } from '../../utils/test-utils'
 
+jest.mock('next-auth/react', () => ({
+  useSession: jest.fn(() => {
+    return { data: null }
+  })
+}))
+
 jest.mock('../../components/Menu', () => ({ __esModule: true, default: jest.fn(() => <div data-testId="Mock Menu"></div>) }))
 jest.mock('../../components/Footer', () => ({ __esModule: true, default: jest.fn(() => <div data-testId="Mock Footer"></div>) }))
 
