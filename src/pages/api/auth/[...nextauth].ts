@@ -11,16 +11,19 @@ export const nextAuthOptions: NextAuthOptions = {
   },
   providers: [
     CredentialsProvider({
-      name: 'Sign-in',
+      name: 'credentials',
       credentials: {
         email: { label: 'email', type: 'text' },
         password: { label: 'Password', type: 'password' }
       },
       async authorize(credentials) {
         const content = { identifier: credentials?.email, password: credentials?.password }
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/local`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/local`, {
           method: 'POST',
-          body: JSON.stringify(content)
+          body: JSON.stringify(content),
+          headers: {
+            'Content-Type': 'application/json'
+          }
         })
 
         const data = await response.json()
@@ -34,16 +37,16 @@ export const nextAuthOptions: NextAuthOptions = {
   callbacks: {
     async jwt({ token, user, account }) {
       if (account) {
-        token.accessToken = account?.access_token
+        token.accessToken = user.jwt
         token.id = user.id
         token.email = user.email
         token.name = user.name
       }
       return Promise.resolve(token)
     },
-    async session({ session, user }) {
-      session.id = user.id
-      session.jwt = user.jwt
+    async session({ session, token }) {
+      session.id = token.id as string
+      session.jwt = token.accessToken as string
       return Promise.resolve(session)
     }
   }
@@ -51,4 +54,5 @@ export const nextAuthOptions: NextAuthOptions = {
 
 const handler = NextAuth(nextAuthOptions)
 
-export { handler as GET, handler as POST }
+export default handler
+// export { handler as GET, handler as POST }
