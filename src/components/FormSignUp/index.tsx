@@ -8,6 +8,7 @@ import TextField from '../TextField'
 import { FormLink, FormLoading, FormWrapper } from '../Form'
 import { accountCircleIcon, mailIcon, lockIcon } from '../icons'
 import { MUTATION_REGISTER } from '../../graphql/mutations/register'
+import { signIn } from 'next-auth/react'
 
 export type FormSignUpValues = {
   username: string
@@ -18,7 +19,12 @@ export type FormSignUpValues = {
 const FormSignUp = () => {
   const [values, setValues] = useState<FormSignUpValues>({ username: '', email: '', password: '' })
 
-  const [createUser, { loading }] = useMutation(MUTATION_REGISTER)
+  const [createUser, { error, loading }] = useMutation(MUTATION_REGISTER, {
+    onError: (err) => console.error(err),
+    onCompleted: () => {
+      !error && signIn('credentials', { email: values.email, password: values.password, callbackUrl: '/' })
+    }
+  })
 
   const handleInput = (field: string, value: string) => {
     setValues((e) => ({ ...e, [field]: value }))
