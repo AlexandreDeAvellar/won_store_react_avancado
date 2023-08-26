@@ -31,7 +31,7 @@ const ProfileMenu = ({ activeLink }: ProfileMenuProps) => (
       </S.Link>
     </Link>
 
-    <S.Link role="button" onClick={() => signOut({ redirect: false })}>
+    <S.Link role="button" onClick={() => signOut()}>
       <S.ExitToApp>{outInsideArrowIcon}</S.ExitToApp>
       <S.Title>Sign out</S.Title>
     </S.Link>

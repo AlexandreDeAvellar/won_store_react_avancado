@@ -35,7 +35,7 @@ const UserDropdown = ({ username }: UserDropdownProps) => (
           </S.Link>
         </Link>
 
-        <S.Link title="Sign out" role="button" onClick={() => signOut({ redirect: false })}>
+        <S.Link title="Sign out" role="button" onClick={() => signOut()}>
           <S.ExitToApp>{outInsideArrowIcon}</S.ExitToApp>
           <span>Sign out</span>
         </S.Link>
