@@ -48,6 +48,7 @@ export const nextAuthOptions: NextAuthOptions = {
       session.id = token.id as string
       session.name = token.name as string
       session.jwt = token.accessToken as string
+      session.user!.image = '/img/logo.svg'
       return Promise.resolve(session)
     }
   }
