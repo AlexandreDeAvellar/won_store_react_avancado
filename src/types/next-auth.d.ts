@@ -5,6 +5,10 @@ declare module 'next-auth' {
     id: string
     jwt: string
     name: string
+    user?: {
+      image?: string
+      name?: string
+    }
   }
 
   interface User {
