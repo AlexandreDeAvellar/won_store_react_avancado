@@ -116,7 +116,7 @@ exports[`<FormSignUp /> should render the form 1`] = `
           class=""
         >
           <svg
-            fill="currentCollor"
+            fill="currentColor"
             height="48"
             viewBox="0 96 960 960"
             width="48"
@@ -219,7 +219,7 @@ exports[`<FormSignUp /> should render the form 1`] = `
         </span>
         <input
           class="c3"
-          name="confirm-password"
+          name="confirm_password"
           placeholder="Confirm password"
           type="password"
           value=""

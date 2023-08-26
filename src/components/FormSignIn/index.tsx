@@ -40,13 +40,12 @@ const FormSignIn = () => {
       setLoading(false)
       return
     }
-
     setFieldErros({})
 
     const result = await signIn('credentials', {
       ...values,
       redirect: false,
-      callbackUrl: '/'
+      callbackUrl: `${window.location.origin}${router.query?.callbackUrl || ''}`
     })
 
     if (result?.url) {
