@@ -1,4 +1,7 @@
 import { FormSignUpValues } from '../../components/FormSignUp'
+import { ForgotPasswordProps } from '../../components/FormForgotPassword'
+import { ResetPasswordProps } from '../../components/FormResetPassword'
+
 import Joi from 'joi'
 
 const fieldsValidations = {
@@ -38,6 +41,20 @@ export function signInValidate(values: Omit<FormSignUpValues, 'username'>) {
   const { email, password } = fieldsValidations
   const schema = Joi.object({ email, password })
 
+  const result = getFieldErrors(schema.validate(values, { abortEarly: false }))
+  return result
+}
+
+export function forgotValidate(values: ForgotPasswordProps) {
+  const { email } = fieldsValidations
+  const schema = Joi.object({ email })
+  const result = getFieldErrors(schema.validate(values, { abortEarly: false }))
+  return result
+}
+
+export function resetValidate(values: ResetPasswordProps) {
+  const { password, confirm_password } = fieldsValidations
+  const schema = Joi.object({ password, confirm_password })
   const result = getFieldErrors(schema.validate(values, { abortEarly: false }))
   return result
 }
