@@ -43,9 +43,30 @@ export const FormError = styled.div`
     text-align: center;
     color: red;
     font-size: ${theme.font.sizes.small};
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     svg {
       width: 1.6rem;
+      margin: 0 0.3rem;
+    }
+  `}
+`
+
+export const FormSuccess = styled.div`
+  ${({ theme }) => css`
+    text-align: center;
+    color: ${theme.colors.black};
+    font-size: ${theme.font.sizes.small};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      color: ${theme.colors.secondary};
+      width: 1.6rem;
+      margin: 0 0.3rem;
     }
   `}
 `
