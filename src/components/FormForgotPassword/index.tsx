@@ -5,6 +5,7 @@ import TextField from '../TextField'
 
 import { FormError, FormLoading, FormSuccess, FormWrapper } from '../Form'
 import { useState } from 'react'
+import { useRouter } from 'next/router'
 
 import { FieldErros, forgotValidate } from '../../utils/validation'
 import { checkCircleIcon, errorIcon } from '../icons'
@@ -14,10 +15,11 @@ export type ForgotPasswordProps = {
 }
 
 const FormForgotPassword = () => {
+  const { query } = useRouter()
   const [success, setSuccess] = useState(false)
   const [formError, setFormError] = useState('')
   const [fieldErros, setFieldErros] = useState<FieldErros>({})
-  const [values, setValue] = useState<ForgotPasswordProps>({ email: '' })
+  const [values, setValue] = useState<ForgotPasswordProps>({ email: (query.email as string) || '' })
   const [loading, setLoading] = useState(false)
 
   const handleInputChange = (field: string, value: string) => {
@@ -73,6 +75,7 @@ const FormForgotPassword = () => {
               name="email"
               placeholder="Email"
               type="text"
+              initialValue={query.email as string}
               icon={mailIcon}
               onInputChange={(v) => handleInputChange('email', v)}
               error={fieldErros.email}
