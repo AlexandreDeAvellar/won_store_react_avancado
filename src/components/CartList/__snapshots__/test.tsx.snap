@@ -168,7 +168,7 @@ exports[`<CartList /> should render the cart list 1`] = `
         >
           <img
             alt="Enter the Gungeon"
-            src="undefined:1337/uploads/enter_the_gungeon_46f4fe4c68.jpg"
+            src="http://127.0.0.1:1337/uploads/enter_the_gungeon_46f4fe4c68.jpg"
           />
         </div>
         <div
@@ -202,7 +202,7 @@ exports[`<CartList /> should render the cart list 1`] = `
         >
           <img
             alt="The Witcher: Enhanced Edition"
-            src="undefined:1337/uploads/the_witcher_fe844be564.jpg"
+            src="http://127.0.0.1:1337/uploads/the_witcher_fe844be564.jpg"
           />
         </div>
         <div
