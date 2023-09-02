@@ -46,7 +46,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
   const { data, loading } = useQueryGames({
     limit: 1000,
     start: 0,
-    filters: { where: { id: { in: cartItems } } }
+    filters: { where: { id: { in: cartItems.length ? cartItems : [''] } } }
   })
 
   const items = cartTransform(data?.games)
