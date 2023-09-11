@@ -10,8 +10,9 @@ const createApolloClient = (session?: Session | null) => {
   // https://www.apollographql.com/docs/react/networking/authentication/
 
   const httpLink = new HttpLink({ uri: `${process.env.NEXT_PUBLIC_API_URL}/graphql` })
-  const authLink = setContext((_, { headers }) => {
-    const authorization = session?.jwt ? `Bearer ${session?.jwt}` : ''
+  const authLink = setContext((_, { headers, session: clientSession }) => {
+    const jwt = session?.jwt || clientSession?.jwt || ''
+    const authorization = jwt ? `Bearer ${session?.jwt}` : ''
     return {
       headers: { ...headers, authorization }
     }
