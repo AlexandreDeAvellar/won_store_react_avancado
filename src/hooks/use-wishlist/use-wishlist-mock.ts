@@ -44,6 +44,19 @@ export const update_result = {
   }
 }
 
+export const remove_result = {
+  data: {
+    updateWishlist: {
+      data: {
+        id: '1',
+        attributes: {
+          games: { data: [mockUseCartItems.data[0]] }
+        }
+      }
+    }
+  }
+}
+
 export const mockGetWishlist = {
   request: {
     query: QUERY_WISHLIST,
@@ -69,6 +82,15 @@ export const mockUpdateWishlist = {
     variables: { id: '1', data: { user: '3', games: ['1', '2', '3'] } }
   },
   result: update_result
+}
+
+export const mockRemoveFromWishlist = {
+  request: {
+    query: MUTATION_UPDATE_WISHLIST,
+    context: { session: { jwt: 'hashed_id' } },
+    variables: { id: '1', data: { user: '3', games: ['1'] } }
+  },
+  result: remove_result
 }
 
 export const mockWishlistItems = [

@@ -2,7 +2,14 @@ import { MockedProvider } from '@apollo/client/testing'
 import { renderHook, waitFor } from '@testing-library/react'
 
 import { useWishlist, WishlistContextProviderProps, WishlistProvider } from '.'
-import { mockCreateWishList, mockGetWishlist, mockUpdateWishlist, mockUpdateWishlistItems, mockWishlistItems } from './use-wishlist-mock'
+import {
+  mockCreateWishList,
+  mockGetWishlist,
+  mockRemoveFromWishlist,
+  mockUpdateWishlist,
+  mockUpdateWishlistItems,
+  mockWishlistItems
+} from './use-wishlist-mock'
 import { act } from 'react-dom/test-utils'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -70,5 +77,22 @@ describe('useWishlist', () => {
     await act(() => result.current.addWishlist('3'))
     await waitFor(() => expect(result.current.items.length).toBe(3))
     await waitFor(() => expect(result.current.items).toStrictEqual(mockUpdateWishlistItems))
+  })
+
+  it('should remove game from wishlist', async () => {
+    const wrapper = ({ children }: WishlistContextProviderProps) => {
+      return (
+        <MockedProvider mocks={[mockGetWishlist, mockRemoveFromWishlist]}>
+          <WishlistProvider>{children}</WishlistProvider>
+        </MockedProvider>
+      )
+    }
+
+    const { result } = renderHook(() => useWishlist(), { wrapper })
+
+    await waitFor(() => expect(result.current.items.length).toBe(2))
+    await act(() => result.current.removeFromWishlist('2'))
+    await waitFor(() => expect(result.current.items.length).toBe(1))
+    await waitFor(() => expect(result.current.items).toStrictEqual([mockWishlistItems[0]]))
   })
 })
