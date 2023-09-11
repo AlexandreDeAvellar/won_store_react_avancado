@@ -45,10 +45,12 @@ export const nextAuthOptions: NextAuthOptions = {
       return Promise.resolve(token)
     },
     async session({ session, token }) {
-      session.id = token.id as string
       session.name = token.name as string
       session.jwt = token.accessToken as string
+      session.user.id = token.id as string
+      session.user.name = token.name as string
       session.user!.image = '/img/logo.svg'
+      session.user.email = token.email as string
       return Promise.resolve(session)
     }
   }

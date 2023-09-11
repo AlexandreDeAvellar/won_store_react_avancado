@@ -2,12 +2,13 @@ import 'next-auth'
 
 declare module 'next-auth' {
   interface Session {
-    id: string
     jwt: string
     name: string
-    user?: {
+    user: {
+      id: string
       image?: string
-      name?: string
+      name: string
+      email: string
     }
   }
 
