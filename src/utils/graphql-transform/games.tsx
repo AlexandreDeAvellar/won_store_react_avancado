@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { currencyFormat } from '../../utils/format'
 import { GameCardProps } from '../../components/GameCard'
+import { graphql_host } from './graphql_host'
 
 export type GameCardGraphqlProps = {
   data: [
@@ -16,11 +17,13 @@ export type GameCardGraphqlProps = {
           }
         }
         developers: {
-          data: {
-            attributes: {
-              name: string
+          data: [
+            {
+              attributes: {
+                name: string
+              }
             }
-          }
+          ]
         }
         price: number
       }
@@ -30,12 +33,12 @@ export type GameCardGraphqlProps = {
 }
 
 export const gameCardTransform = ({ data }: GameCardGraphqlProps): GameCardProps[] => {
-  const gameCards = data.map((r: any) => ({
+  const gameCards = data.map((r) => ({
     id: r.id,
     title: r.attributes.name,
     slug: r.attributes.slug,
     developer: r.attributes.developers.data[0].attributes.name,
-    img: `${process.env.NEXT_PUBLIC_APP_URL_GRAPHQL}${r.attributes.cover.data.attributes.url}`,
+    img: `${graphql_host}${r.attributes.cover.data.attributes.url}`,
     price: currencyFormat(r.attributes.price),
     promotionalPrice: new Intl.NumberFormat('en', { style: 'currency', currency: 'USD' }).format(r.attributes.price)
   }))
