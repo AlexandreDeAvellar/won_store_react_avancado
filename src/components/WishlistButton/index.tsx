@@ -2,6 +2,8 @@ import { useWishlist } from '../../hooks/use-wishlist'
 import { favoriteFilledIcon, favoriteIcon } from '../icons'
 import Button, { ButtonProps } from '../Button'
 import { useSession } from 'next-auth/react'
+import { useState } from 'react'
+import Spinner from '../Spinner'
 
 export type WishlistButtonProps = {
   id: string
@@ -11,12 +13,15 @@ export type WishlistButtonProps = {
 const WishlistButton = ({ id, hasText = false, size = 'small' }: WishlistButtonProps) => {
   const { data: session } = useSession()
   const { isInWishlist, addWishlist, removeFromWishlist } = useWishlist()
+  const [loading, setLoading] = useState(false)
   const buttonText = isInWishlist(id) ? 'Remove from Wishlist' : 'Add to Wishlist'
 
   if (!session) return null
 
-  const handleClick = () => {
-    !isInWishlist(id) ? addWishlist(id) : removeFromWishlist(id)
+  const handleClick = async () => {
+    setLoading(true)
+    !isInWishlist(id) ? await addWishlist(id) : await removeFromWishlist(id)
+    setLoading(false)
   }
 
   return (
@@ -24,7 +29,17 @@ const WishlistButton = ({ id, hasText = false, size = 'small' }: WishlistButtonP
       onClick={handleClick}
       minimal
       size={size}
-      icon={isInWishlist(id) ? <span aria-label={buttonText}>{favoriteFilledIcon}</span> : <span aria-label={buttonText}>{favoriteIcon}</span>}
+      icon={
+        isInWishlist(id) ? (
+          loading ? (
+            <Spinner />
+          ) : (
+            <span aria-label={buttonText}>{favoriteFilledIcon}</span>
+          )
+        ) : (
+          <span aria-label={buttonText}>{favoriteIcon}</span>
+        )
+      }
     >
       {hasText && buttonText}
     </Button>
