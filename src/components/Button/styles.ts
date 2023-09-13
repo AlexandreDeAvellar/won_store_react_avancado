@@ -63,6 +63,10 @@ export const Wrapper = styled.button<WrapperProps>`
     cursor: pointer;
     text-decoration: none;
 
+    &:focus {
+      outline: 1px dashed;
+    }
+
     &:hover {
       background: linear-gradient(180deg, #e35565 0%, #d958a6 50%);
       background: ${minimal ? 'none' : `linear-gradient(180deg, #e35565 0%, #d958a6 50%)`};
