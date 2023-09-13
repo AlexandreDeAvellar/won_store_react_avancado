@@ -1,8 +1,8 @@
 import Ribbon, { RibbonColors, RibbonSizes } from '../Ribbon'
-import { favoriteFilledIcon, favoriteIcon } from '../icons'
 import * as S from './styles'
 import Link from 'next/link'
 import { CartButton } from '../CartButton'
+import WishlistButton from '../WishlistButton'
 
 export type GameCardProps = {
   id: string
@@ -27,7 +27,6 @@ const GameCard = ({
   price,
   title,
   promotionalPrice,
-  favorite = false,
   onFav,
   ribbon,
   ribbonColor = 'primary',
@@ -55,11 +54,7 @@ const GameCard = ({
       </Link>
 
       <S.FavButton onClick={onFav} role="button">
-        {favorite ? (
-          <S.FavIcon aria-label="Remove from Wishlist">{favoriteFilledIcon}</S.FavIcon>
-        ) : (
-          <S.FavIcon aria-label="Add to Wishlist">{favoriteIcon}</S.FavIcon>
-        )}
+        <WishlistButton id={id} />
       </S.FavButton>
 
       <S.BuyBox>
