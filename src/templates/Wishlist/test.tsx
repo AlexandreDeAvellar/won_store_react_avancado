@@ -1,3 +1,4 @@
+import '../../../.jest/session.mock'
 import Wishlist, { WishlistTemplateProps } from '.'
 import { render as renderWithTheme, screen } from '../../utils/test-utils'
 import { gameCardProps } from '../../components/GameCardSlider/game-card-slider-mocks'

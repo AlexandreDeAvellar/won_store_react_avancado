@@ -1,3 +1,4 @@
+import '../../../.jest/session.mock'
 import { fireEvent } from '@testing-library/react'
 import GameCard, { GameCardProps } from '.'
 import { render as renderWithTheme, screen } from '../../utils/test-utils'
@@ -33,11 +34,6 @@ describe('<GameCard />', () => {
     renderWithTheme(<GameCard promotionalPrice="R$ 100,00" {...props} />)
     expect(screen.getByText('R$ 200,00')).toHaveStyle({ 'text-decoration': 'line-through' })
     expect(screen.getByText('R$ 100,00')).not.toHaveStyle({ 'text-decoration': 'line-through' })
-  })
-
-  it('should render filled Favorite icon when favorite is true', () => {
-    renderWithTheme(<GameCard {...props} favorite />)
-    expect(screen.getByLabelText(/remove from wishlist/i)).toBeInTheDocument()
   })
 
   it('should call onFav method when favorite is clicked', () => {

@@ -1,3 +1,4 @@
+import '../../../.jest/session.mock'
 import { fireEvent } from '@testing-library/react'
 import { MockedProvider } from '@apollo/client/testing'
 

@@ -1,3 +1,4 @@
+import '../../../.jest/session.mock'
 import GameInfo, { GameInfoProps } from '.'
 import { render as renderWithTheme, screen } from '../../utils/test-utils'
 
@@ -19,6 +20,6 @@ describe('<GameInfo />', () => {
   it('should render game buttons', () => {
     renderWithTheme(<GameInfo {...props} />)
     expect(screen.getByRole('button', { name: 'Add to cart' })).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: 'Wishlist' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /Add to Wishlist/i })).toBeInTheDocument()
   })
 })

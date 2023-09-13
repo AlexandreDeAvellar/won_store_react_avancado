@@ -2,7 +2,7 @@ import Heading from '../Heading'
 import * as S from './styles'
 import Ribbon from '../Ribbon'
 import { CartButton } from '../CartButton'
-import WishlistButton from 'components/WishlistButton'
+import WishlistButton from '../WishlistButton'
 
 export type GameInfoProps = {
   id: string

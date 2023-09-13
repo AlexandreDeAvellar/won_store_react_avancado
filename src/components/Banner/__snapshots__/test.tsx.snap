@@ -27,6 +27,10 @@ exports[`<Banner /> should render the image 1`] = `
   padding: 0.4rem 2.8rem;
 }
 
+.c5:focus {
+  outline: 1px dashed;
+}
+
 .c5:hover {
   background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
   background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
