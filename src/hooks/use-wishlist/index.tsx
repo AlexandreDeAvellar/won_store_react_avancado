@@ -73,7 +73,7 @@ export const WishlistProvider = ({ children }: WishlistContextProviderProps) => 
     if (!session?.user) return
     if (!wishListId) return createWishlist({ variables: { user: session?.user?.id, games: [...wishlistIds, id] } })
 
-    updateWishlist({ variables: { id: wishListId, data: { user: session?.user?.id, games: [...wishlistIds, id] } } })
+    return updateWishlist({ variables: { id: wishListId, data: { user: session?.user?.id, games: [...wishlistIds, id] } } })
   }
 
   const removeFromWishlist = (id: string) => {
