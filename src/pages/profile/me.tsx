@@ -3,7 +3,7 @@ import FormProfile, { FormProfileProps } from '../../components/FormProfile'
 import Profile from '../../templates/Profile'
 import { protectedRoutesServer } from '../../utils/protected-routes'
 import { initializeApollo } from '../../utils/apollo'
-import { QUERY_PROFILE_ME } from '../../graphql/queries/profile'
+import { QUERY_PROFILE_ME, QueryProfileMeProps, QueryProfileMeVariables } from '../../graphql/queries/profile'
 
 export default function Me(props: FormProfileProps) {
   return (
@@ -17,8 +17,16 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await protectedRoutesServer(context)
   const apolloClient = initializeApollo(null, session)
 
-  const { data } = await apolloClient.query({ query: QUERY_PROFILE_ME })
+  const { data } = await apolloClient.query<QueryProfileMeProps, QueryProfileMeVariables>({
+    query: QUERY_PROFILE_ME,
+    variables: { id: session?.user?.id as string }
+  })
+
   return {
-    props: { session, username: data.me?.username, email: data.me?.email }
+    props: {
+      session,
+      username: data?.usersPermissionsUser?.data?.attributes?.username,
+      email: data?.usersPermissionsUser?.data?.attributes?.email
+    }
   }
 }
