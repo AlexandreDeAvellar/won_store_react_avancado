@@ -2,7 +2,9 @@ import { gql } from '@apollo/client'
 import { GameFragment } from '../fragments'
 import { GameCardGraphqlProps } from '../../utils/graphql-transform'
 
-export type MutationCreateWishlistVariables = { user: string; games: string[] }
+export type MutationCreateWishlistVariables = {
+  data: { user: string; games: string[] }
+}
 export type MutationCreateWishlistProps = {
   createWishlist: {
     data: {
