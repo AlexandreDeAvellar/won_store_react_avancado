@@ -1,7 +1,5 @@
 import Cart, { CartProps } from '../../templates/Cart'
 
-import { gameItemProps } from '../../components/GameItem/game-item-mocks'
-import { paymentCardProps } from '../../components/PaymentOptions/payment-options-mocks'
 import { initializeApollo } from '../../utils/apollo'
 import { recommendedTransform } from '../../utils/graphql-transform/recommended'
 import { QUERY_RECOMMENDED } from '../../graphql/queries/recommended'
@@ -21,9 +19,6 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
   return {
     props: {
       session,
-      items: gameItemProps,
-      total: '$ 430,00',
-      cards: paymentCardProps,
       recommendedTitle,
       recommendedGames,
       recommendedHighlight

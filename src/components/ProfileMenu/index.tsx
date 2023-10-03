@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { accountCircleIcon, listIcon, cardIcon, outInsideArrowIcon } from '../icons'
+import { accountCircleIcon, listIcon, outInsideArrowIcon } from '../icons'
 
 import * as S from './styles'
 import { signOut } from 'next-auth/react'
@@ -14,13 +14,6 @@ const ProfileMenu = ({ activeLink }: ProfileMenuProps) => (
       <S.Link isActive={activeLink === '/profile/me'} title="My profile">
         <S.AccountCircle>{accountCircleIcon}</S.AccountCircle>
         <S.Title>My profile</S.Title>
-      </S.Link>
-    </Link>
-
-    <Link href="/profile/cards" passHref>
-      <S.Link isActive={activeLink === '/profile/cards'} title="My cards">
-        <S.CreditCard>{cardIcon}</S.CreditCard>
-        <S.Title>My cards</S.Title>
       </S.Link>
     </Link>
 
