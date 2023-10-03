@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint src --max-warnings=0 --fix",
-    "test": "jest --bail --silent --noStackTrace --runInBand --passWithNoTests",
+    "test": "jest --runInBand",
     "test:unit": "npm test -- --watch --collectCoverage=false",
     "test:unit-verbose": "npm test -- --watch --collectCoverage=false --verbose=true --silent=false",
     "test:staged": "npm test --",
