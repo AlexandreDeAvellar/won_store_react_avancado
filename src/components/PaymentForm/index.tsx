@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react'
 import { useCart } from '../../hooks/use-cart'
 import { createPaymentIntent } from '../../utils/stripe/methods'
 import { Session } from 'next-auth'
+import { FormLoading } from '../Form'
 
 export type PaymentFormParams = { session: Session }
 
@@ -17,6 +18,7 @@ const PaymentForm = ({ session }: PaymentFormParams) => {
   const [disabled, setDisabled] = useState(true)
   const [clientSecret, setClientSecret] = useState('')
   const [freeGames, setFreeGames] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     async function setPaymentMode() {
@@ -52,29 +54,37 @@ const PaymentForm = ({ session }: PaymentFormParams) => {
     setDisabled(event.empty)
     setError(event.error ? event.error.message : '')
   }
+
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault()
+    setLoading(true)
+  }
+
   return (
     <S.Wrapper>
-      <S.Body>
-        <Heading color="black" size="small" lineBottom>
-          Payment
-        </Heading>
+      <form onSubmit={handleSubmit}>
+        <S.Body>
+          <Heading color="black" size="small" lineBottom>
+            Payment
+          </Heading>
 
-        {freeGames ? <S.FreeGames>Only free games, click buy and enjoy!</S.FreeGames> : <CardElement onChange={handleChange} />}
-        {error && (
-          <S.Error>
-            <span>{errorIcon}</span>
-            {error}
-          </S.Error>
-        )}
-      </S.Body>
-      <S.Footer>
-        <Button as="a" fullWidth minimal>
-          Continue shopping
-        </Button>
-        <Button fullWidth icon={addShoppingCartIcon} disabled={!freeGames && (disabled || !!error)}>
-          Buy now
-        </Button>
-      </S.Footer>
+          {freeGames ? <S.FreeGames>Only free games, click buy and enjoy!</S.FreeGames> : <CardElement onChange={handleChange} />}
+          {error && (
+            <S.Error>
+              <span>{errorIcon}</span>
+              {error}
+            </S.Error>
+          )}
+        </S.Body>
+        <S.Footer>
+          <Button as="a" fullWidth minimal>
+            Continue shopping
+          </Button>
+          <Button fullWidth icon={loading ? <FormLoading /> : addShoppingCartIcon} disabled={!freeGames && (disabled || !!error)}>
+            {!loading && <span>Buy now</span>}
+          </Button>
+        </S.Footer>
+      </form>
     </S.Wrapper>
   )
 }
