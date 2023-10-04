@@ -27,3 +27,25 @@ export const Footer = styled.div`
     }
   `}
 `
+
+export const Error = styled.p`
+  ${({ theme }) => css`
+    color: ${theme.colors.danger};
+    padding-top: ${theme.spacings.xsmall};
+    display: flex;
+    align-items: center;
+    span {
+      padding-right: ${theme.spacings.xxsmall};
+    }
+
+    svg {
+      width: ${theme.font.sizes.xlarge};
+    }
+  `}
+`
+
+export const FreeGames = styled.p`
+  ${({ theme }) => css`
+    color: ${theme.colors.black};
+  `}
+`
