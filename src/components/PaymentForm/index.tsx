@@ -2,13 +2,14 @@ import { addShoppingCartIcon, errorIcon } from '../icons'
 import Button from '../Button'
 import Heading from '../Heading'
 import * as S from './styles'
-import { CardElement } from '@stripe/react-stripe-js'
+import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import { StripeCardElementChangeEvent } from '@stripe/stripe-js'
 import { useEffect, useState } from 'react'
 import { useCart } from '../../hooks/use-cart'
 import { createPaymentIntent } from '../../utils/stripe/methods'
 import { Session } from 'next-auth'
 import { FormLoading } from '../Form'
+import { useRouter } from 'next/router'
 
 export type PaymentFormParams = { session: Session }
 
@@ -19,6 +20,9 @@ const PaymentForm = ({ session }: PaymentFormParams) => {
   const [clientSecret, setClientSecret] = useState('')
   const [freeGames, setFreeGames] = useState(false)
   const [loading, setLoading] = useState(false)
+  const { push } = useRouter()
+  const stripe = useStripe()
+  const elements = useElements()
 
   useEffect(() => {
     async function setPaymentMode() {
@@ -43,13 +47,6 @@ const PaymentForm = ({ session }: PaymentFormParams) => {
     setPaymentMode()
   }, [items, session])
 
-  let a = 'asd'
-  if (a === 'number') {
-    a = clientSecret
-    a = ''
-    console.log(a)
-  }
-
   const handleChange = (event: StripeCardElementChangeEvent) => {
     setDisabled(event.empty)
     setError(event.error ? event.error.message : '')
@@ -58,6 +55,29 @@ const PaymentForm = ({ session }: PaymentFormParams) => {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
     setLoading(true)
+
+    if (freeGames) {
+      push('/success')
+      return
+    }
+
+    if (!stripe || !elements) return
+
+    const { error } = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: elements.getElement(CardElement)!
+      }
+    })
+
+    if (error) {
+      setError(`Falha no pagamento: ${error.message}`)
+      setLoading(false)
+    } else {
+      setError(null)
+      setLoading(false)
+
+      push('/success')
+    }
   }
 
   return (
@@ -68,7 +88,11 @@ const PaymentForm = ({ session }: PaymentFormParams) => {
             Payment
           </Heading>
 
-          {freeGames ? <S.FreeGames>Only free games, click buy and enjoy!</S.FreeGames> : <CardElement onChange={handleChange} />}
+          {freeGames ? (
+            <S.FreeGames>Only free games, click buy and enjoy!</S.FreeGames>
+          ) : (
+            <CardElement onChange={handleChange} options={{ hidePostalCode: true }} />
+          )}
           {error && (
             <S.Error>
               <span>{errorIcon}</span>
