@@ -1,10 +1,8 @@
 import { currencyFormat } from '../../utils/format'
 import { QueryOrdersProps } from '../../graphql/queries/orders'
 
-export const ordersTransform = (items: QueryOrdersProps[]) => {
-  const {
-    orders: { data }
-  } = items[0]
+export const ordersTransform = ({ orders }: QueryOrdersProps) => {
+  const { data } = orders
   const result = !data
     ? []
     : data.map((order) => {
