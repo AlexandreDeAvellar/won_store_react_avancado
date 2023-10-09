@@ -70,7 +70,7 @@ export const mockCreateWishList = {
   request: {
     query: MUTATION_CREATE_WISHLIST,
     context: { session: { jwt: 'hashed_id' } },
-    variables: { user: '3', games: ['1'] }
+    variables: { data: { user: '3', games: ['1'] } }
   },
   result: create_result
 }
