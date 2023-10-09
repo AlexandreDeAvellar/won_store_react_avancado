@@ -2,6 +2,7 @@ import { gql } from '@apollo/client'
 import { GameFragment } from '../fragments'
 import { GameCardGraphqlProps } from '../../utils/graphql-transform'
 
+export type QueryOrdersVariables = { identifier: string }
 export type QueryOrdersProps = {
   orders: {
     data: [
