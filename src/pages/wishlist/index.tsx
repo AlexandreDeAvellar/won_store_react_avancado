@@ -15,7 +15,9 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await protectedRoutesServer(context)
   const apolloClient = initializeApollo(null, session)
 
-  if (!session) return {}
+  if (!session) {
+    return { props: {} }
+  }
 
   const { data } = await apolloClient.query({ query: QUERY_RECOMMENDED })
   const { recommendedTitle, recommendedGames, recommendedHighlight } = recommendedTransform(data?.recommended)
