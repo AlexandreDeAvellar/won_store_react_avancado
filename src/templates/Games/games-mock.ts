@@ -57,7 +57,7 @@ export const mockGames = {
 export const mockMoreGames = {
   request: {
     query: QUERY_GAMES,
-    variables: { limit: 4, start: 1 }
+    variables: { limit: 4, start: 1, where: {}, sort: undefined, filters: { where: {}, sort: undefined } }
   },
   result: {
     data: {
