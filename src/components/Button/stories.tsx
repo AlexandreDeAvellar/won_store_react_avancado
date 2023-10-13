@@ -1,5 +1,5 @@
 import Button, { ButtonProps } from '.'
-import { Story, Meta } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 import { addShoppingCartIcon } from '../icons'
 
 export default {
@@ -12,11 +12,13 @@ export default {
   icon: { type: '' }
 } as Meta
 
-export const Basic: Story<ButtonProps> = (args) => <Button {...args} />
+type Story = StoryObj<typeof Button>
+
+export const Basic: Story = (args: ButtonProps) => <Button {...args} />
 
 Basic.args = { children: 'Buy Now' }
 
-export const withIcon: Story<ButtonProps> = (args) => <Button {...args} />
+export const withIcon: Story = (args: ButtonProps) => <Button {...args} />
 
 withIcon.args = {
   children: 'Buy Now',
@@ -24,7 +26,7 @@ withIcon.args = {
   icon: <> {addShoppingCartIcon} </>
 }
 
-export const asLink: Story<ButtonProps> = (args) => <Button {...args} />
+export const asLink: Story = (args: ButtonProps) => <Button {...args} />
 
 asLink.args = {
   children: 'Buy Now',
