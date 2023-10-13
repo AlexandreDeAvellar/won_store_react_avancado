@@ -35,12 +35,12 @@ const wrapperModifiers = {
     }
   `,
   minimal: (theme: DefaultTheme) => css`
-    background: none;
-    color: ${theme.colors.primary};
-
-    &:hover {
+    & :hover {
       color: ${darken(0.1, theme.colors.primary)};
     }
+
+    background: none;
+    color: ${theme.colors.primary};
   `,
   disabled: () => css`
     &:disabled {

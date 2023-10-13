@@ -70,11 +70,12 @@ describe('<Button />', () => {
         Buy now
       </Button>
     )
+    const button = screen.getByRole('link', { name: /buy now/i })
 
-    expect(screen.getByRole('link', { name: /buy now/i })).toHaveStyle({
+    expect(button).toHaveStyle({
       background: 'none',
       color: `${theme.colors.primary}`
     })
-    expect(screen.getByRole('link', { name: /buy now/i })).toHaveStyleRule('background', 'none', { modifier: ':hover' })
+    expect(button).toHaveStyleRule('background', 'none', { modifier: ':hover' })
   })
 })
