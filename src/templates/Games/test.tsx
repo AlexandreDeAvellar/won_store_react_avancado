@@ -1,5 +1,5 @@
 import '../../../.jest/session.mock'
-import { fireEvent } from '@testing-library/react'
+import { fireEvent, waitFor } from '@testing-library/react'
 import { MockedProvider } from '@apollo/client/testing'
 
 import { apolloCache } from '../../utils/apollo/apollo-cache'
@@ -82,9 +82,11 @@ describe('<Games />', () => {
     userEvent.click(await screen.findByRole('checkbox', { name: /windows/i }))
     userEvent.click(await screen.findByRole('checkbox', { name: /linux/i }))
     userEvent.click(await screen.findByLabelText(/low to high/i))
-    expect(push).toHaveBeenCalledWith({
-      pathname: '/games',
-      query: { platforms: ['windows', 'linux'], sort_by: 'low-to-high' }
+    await waitFor(() => {
+      expect(push).toHaveBeenCalledWith({
+        pathname: '/games',
+        query: { platforms: ['windows', 'linux'], sort_by: 'low-to-high' }
+      })
     })
   })
 })

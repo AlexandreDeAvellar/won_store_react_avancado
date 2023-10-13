@@ -1,10 +1,10 @@
 import { CartButton } from '.'
 import { render as renderWithTheme, screen } from '../../utils/test-utils'
 import { defaultCartItem } from '../../hooks/use-cart'
-import { userEvent } from '@storybook/testing-library'
+import { userEvent, waitFor } from '@storybook/testing-library'
 
 describe('<CartButton />', () => {
-  it('should render button to add and call the method if clicked', () => {
+  it('should render button to add and call the method if clicked', async () => {
     const cartProviderProps = { ...defaultCartItem, addToCart: jest.fn() }
     renderWithTheme(<CartButton id="1" />, { cartProviderProps })
 
@@ -12,10 +12,10 @@ describe('<CartButton />', () => {
     expect(button).toBeInTheDocument()
 
     userEvent.click(button)
-    expect(cartProviderProps.addToCart).toHaveBeenCalledWith('1')
+    await waitFor(() => expect(cartProviderProps.addToCart).toHaveBeenCalledWith('1'))
   })
 
-  it('should render button to remove and call the method if clicked', () => {
+  it('should render button to remove and call the method if clicked', async () => {
     const cartProviderProps = { ...defaultCartItem, removeFromCart: jest.fn(), isInCart: () => true }
     renderWithTheme(<CartButton id="1" />, { cartProviderProps })
 
@@ -23,6 +23,6 @@ describe('<CartButton />', () => {
     expect(button).toBeInTheDocument()
 
     userEvent.click(button)
-    expect(cartProviderProps.removeFromCart).toHaveBeenCalledWith('1')
+    await waitFor(() => expect(cartProviderProps.removeFromCart).toHaveBeenCalledWith('1'))
   })
 })

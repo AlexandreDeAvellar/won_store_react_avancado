@@ -41,6 +41,6 @@ describe('<Radio />', () => {
     renderWithTheme(<Radio {...props} />)
     expect(document.body).toHaveFocus()
     userEvent.tab()
-    expect(screen.getByRole('radio')).toHaveFocus()
+    await waitFor(() => expect(screen.getByRole('radio')).toHaveFocus())
   })
 })

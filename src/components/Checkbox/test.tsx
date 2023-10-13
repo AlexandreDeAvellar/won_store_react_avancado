@@ -49,6 +49,6 @@ describe('<Checkbox />', () => {
     renderWithTheme(<Checkbox {...props} />)
     expect(document.body).toHaveFocus()
     userEvent.tab()
-    expect(screen.getByRole('checkbox')).toHaveFocus()
+    await waitFor(() => expect(screen.getByRole('checkbox')).toHaveFocus())
   })
 })
