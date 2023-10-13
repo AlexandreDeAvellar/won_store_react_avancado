@@ -22,18 +22,13 @@ export const Wrapper = styled.main`
   `}
 `
 
-type ImageType = {
-  src: string
-}
-
-export const Image = styled.div<ImageType>`
-  ${({ theme, src }) => css`
+export const ImageWrapper = styled.div`
+  ${({ theme }) => css`
     width: 100%;
     height: 23rem;
     background-color: ${theme.colors.lightGray};
-    background-image: url(${src});
     background-position: center center;
-    background-size: cover;
+    position: relative;
 
     ${media.greaterThan('medium')`
       height: 58rem;

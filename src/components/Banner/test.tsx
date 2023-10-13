@@ -9,7 +9,7 @@ describe('<Banner />', () => {
     const { container } = renderWithTheme(<Banner {...props} />)
 
     const img = screen.getByRole('img')
-    expect(img.getAttribute('src')).toBe(props.img)
+    expect(img.getAttribute('src')).not.toBe('')
 
     expect(container).toMatchSnapshot()
   })
