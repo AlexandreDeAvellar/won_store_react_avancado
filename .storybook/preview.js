@@ -1,3 +1,4 @@
+import '../.jest/next-imagem.mock'
 import { ThemeProvider } from 'styled-components'
 import GlobalStyles from '../src/styles/global'
 import theme from '../src/styles/theme'
