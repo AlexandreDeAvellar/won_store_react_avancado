@@ -2,6 +2,7 @@ import Button from '../Button'
 import * as S from './styles'
 import Ribbon, { RibbonColors, RibbonSizes } from '../Ribbon'
 import Image from 'next/image'
+import parse from 'html-react-parser'
 
 export type BannerProps = {
   img: string
@@ -28,7 +29,7 @@ const Banner = ({ img, title, subtitle, buttonLink, buttonLabel, ribbon, ribbonC
 
     <S.Caption>
       <S.Titile>{title}</S.Titile>
-      <S.Subitile dangerouslySetInnerHTML={{ __html: subtitle }} />
+      <S.Subitile>{parse(subtitle)}</S.Subitile>
       <Button as="a" href={buttonLink} size="large">
         {buttonLabel}
       </Button>

@@ -1,4 +1,5 @@
 import Heading from '../Heading'
+import parse from 'html-react-parser'
 
 import * as S from './styles'
 
@@ -15,7 +16,7 @@ const TextContent = ({ title, content }: TextContentProps) => (
       </Heading>
     )}
 
-    <div dangerouslySetInnerHTML={{ __html: content }} />
+    <div>{parse(content)}</div>
   </S.Wrapper>
 )
 
