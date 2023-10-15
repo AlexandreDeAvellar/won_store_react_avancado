@@ -1,13 +1,10 @@
-import { Story, Meta } from '@storybook/react/types-6-0'
+import { StoryObj, Meta } from '@storybook/react'
 import Gallery, { GalleryProps } from '.'
 import { galleryProps } from './gallery-mocks'
 
 export default {
   title: 'Gallery',
   component: Gallery,
-  args: {
-    items: galleryProps
-  },
   parameters: {
     layout: 'fullscreen',
     backgrounds: {
@@ -16,8 +13,12 @@ export default {
   }
 } as Meta
 
-export const Default: Story<GalleryProps> = (args) => (
+type Story = StoryObj<typeof Gallery>
+
+export const Default: Story = (args: GalleryProps) => (
   <div style={{ maxWidth: '130rem', margin: '0 auto' }}>
     <Gallery {...args} />
   </div>
 )
+
+Default.args = { items: galleryProps }

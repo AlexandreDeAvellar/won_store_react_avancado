@@ -1,14 +1,17 @@
-import { Story, Meta } from '@storybook/react/types-6-0'
+import { StoryObj, Meta } from '@storybook/react'
 import CartIcon from '.'
 
 export default {
   title: 'CartIcon',
-  component: CartIcon
+  component: CartIcon,
+  args: {}
 } as Meta
 
-export const Default: Story = () => <CartIcon />
-export const withItems: Story = (args) => <CartIcon {...args} />
+type Story = StoryObj<typeof CartIcon>
 
-withItems.args = {
-  quantity: 3
-}
+export const Default: Story = () => <CartIcon />
+export const withItems: Story = () => <CartIcon />
+
+Default.args = {}
+
+withItems.args = { quantity: 3 }

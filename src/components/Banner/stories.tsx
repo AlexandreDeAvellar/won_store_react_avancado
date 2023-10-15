@@ -1,6 +1,6 @@
 import Banner, { BannerProps } from '.'
 import { bannerProps } from './banner-mocks'
-import { Story, Meta } from '@storybook/react'
+import { Meta } from '@storybook/react'
 
 export default {
   title: 'Banner',
@@ -10,9 +10,9 @@ export default {
   parameters: { layout: 'fullscreen' }
 } as Meta
 
-export const Basic: Story<BannerProps> = (args) => <Banner {...args} />
+export const Basic = (args: BannerProps) => <Banner {...args} />
 
-export const WithRibbon: Story<BannerProps> = (args) => (
+export const WithRibbon = (args: BannerProps) => (
   <div style={{ maxWidth: '80rem', maxHeight: '20rem', position: 'relative', backgroundColor: '#ff0000' }}>
     <Banner {...args} />
   </div>

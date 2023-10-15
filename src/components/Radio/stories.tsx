@@ -1,5 +1,5 @@
 import Radio, { RadioProps } from '.'
-import { Story, Meta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
 
 export default {
   title: 'Radio',
@@ -9,7 +9,9 @@ export default {
   }
 } as Meta
 
-export const Basic: Story<RadioProps> = (args) => (
+type Story = StoryObj<typeof Radio>
+
+export const Basic: Story = (args: RadioProps) => (
   <>
     <div style={{ padding: 10 }}>
       <Radio label="primeiro" labelFor="primeiro" id="primeiro" name="nome" value="primeiro" defaultChecked {...args} />
@@ -22,3 +24,5 @@ export const Basic: Story<RadioProps> = (args) => (
     </div>
   </>
 )
+
+Basic.args = {}

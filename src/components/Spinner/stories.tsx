@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
 import Spinner, { SpinnerProps } from '.'
 
 export default {
@@ -6,4 +6,8 @@ export default {
   component: Spinner
 } as Meta
 
-export const Default: Story<SpinnerProps> = (args) => <Spinner {...args} />
+type Story = StoryObj<typeof Spinner>
+
+export const Default: Story = (args: SpinnerProps) => <Spinner {...args} />
+
+Default.args = {}

@@ -1,20 +1,23 @@
-import { Story, Meta } from '@storybook/react/types-6-0'
+import { StoryObj, Meta } from '@storybook/react'
 import GameItem, { GameItemProps } from '.'
 
 export default {
   title: 'GameItem',
-  component: GameItem,
-  args: {
-    id: '1',
-    img: 'https://source.unsplash.com/user/willianjusten/151x70',
-    title: 'Red Dead Redemption 2',
-    price: 'R$ 215,00'
-  }
+  component: GameItem
 } as Meta
 
-export const Default: Story<GameItemProps> = (args) => <GameItem {...args} />
+type Story = StoryObj<typeof GameItem>
 
-export const WithPayment: Story<GameItemProps> = (args) => <GameItem {...args} />
+export const Default: Story = (args: GameItemProps) => <GameItem {...args} />
+
+export const WithPayment: Story = (args: GameItemProps) => <GameItem {...args} />
+
+Default.args = {
+  id: '1',
+  img: 'https://source.unsplash.com/user/willianjusten/151x70',
+  title: 'Red Dead Redemption 2',
+  price: 'R$ 215,00'
+}
 
 WithPayment.args = {
   downloadLink: 'https://wongames.com/game/download/21312ndasd',

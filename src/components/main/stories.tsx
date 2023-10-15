@@ -1,12 +1,14 @@
 import Main from '.'
-import { Story, Meta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
 
 export default {
   title: 'Main',
   component: Main
 } as Meta
 
-export const Basic: Story = (args) => <Main {...args} />
+type Story = StoryObj<typeof Main>
+
+export const Basic: Story = (args: { title: string; description: string }) => <Main {...args} />
 
 Basic.args = {
   title: 'React Avançado',

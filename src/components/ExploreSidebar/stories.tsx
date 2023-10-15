@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react/types-6-0'
+import { StoryObj, Meta } from '@storybook/react'
 import ExploreSidebar, { ExploreSidebarProps } from '.'
 
 import { explorerSidebarItemProps } from './explorer-sidebar-mocks'
@@ -6,10 +6,7 @@ import { explorerSidebarItemProps } from './explorer-sidebar-mocks'
 export default {
   title: 'ExploreSidebar',
   component: ExploreSidebar,
-  args: {
-    items: explorerSidebarItemProps,
-    onFilter: () => console.log('Filter')
-  },
+  args: {},
   parameters: {
     layout: 'fullscreen',
     backgrounds: {
@@ -18,14 +15,21 @@ export default {
   }
 } as Meta
 
-export const Default: Story<ExploreSidebarProps> = (args) => (
+type Story = StoryObj<typeof ExploreSidebar>
+
+export const Default: Story = (args: ExploreSidebarProps) => (
   <div style={{ padding: 16, maxWidth: 320 }}>
     <ExploreSidebar {...args} />
   </div>
 )
 
-export const WithInitialValues: Story<ExploreSidebarProps> = (args) => (
+export const WithInitialValues: Story = (args: ExploreSidebarProps) => (
   <div style={{ padding: 16, maxWidth: 320 }}>
     <ExploreSidebar {...args} initialValues={{ platforms: ['windows', 'linux'], sort_by: 'low-to-high' }} />
   </div>
 )
+
+const args: ExploreSidebarProps = { items: explorerSidebarItemProps, onFilter: () => console.log('Filter') }
+
+Default.args = args
+WithInitialValues.args = args

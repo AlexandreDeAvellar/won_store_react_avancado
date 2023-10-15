@@ -1,40 +1,45 @@
-import { Story, Meta } from '@storybook/react/types-6-0'
+import { StoryObj, Meta } from '@storybook/react'
 import TextField, { TextFieldProps } from '.'
 import { mailIcon } from '../icons/mail-icon'
 
 export default {
   title: 'Form/TextField',
   component: TextField,
-  args: {
-    label: 'E-mail',
-    name: 'Email',
-    id: 'Email',
-    initialValue: '',
-    placeholder: 'john.cage@gmail.com',
-    error: ''
-  },
   argTypes: {
     onInput: { action: 'changed' },
     icon: { type: 'boolean' }
   }
 } as Meta
 
-export const Default: Story<TextFieldProps> = (args) => (
+type Story = StoryObj<typeof TextField>
+
+export const Default: Story = (args: TextFieldProps) => (
   <div style={{ maxWidth: 300, padding: 15 }}>
     <TextField {...args} />
   </div>
 )
 
-export const WithIcon: Story<TextFieldProps> = (args) => (
+export const WithIcon: Story = (args: TextFieldProps) => (
   <div style={{ maxWidth: 300, padding: 15 }}>
     <TextField {...args} icon={mailIcon} />
   </div>
 )
 
-export const WithError: Story<TextFieldProps> = (args) => (
+export const WithError: Story = (args: TextFieldProps) => (
   <div style={{ maxWidth: 300, padding: 15 }}>
     <TextField {...args} icon={mailIcon} />
   </div>
 )
 
-WithError.args = { error: 'Error Message' }
+const args = {
+  label: 'E-mail',
+  name: 'Email',
+  id: 'Email',
+  initialValue: '',
+  placeholder: 'john.cage@gmail.com',
+  error: ''
+}
+
+Default.args = args
+WithIcon.args = args
+WithError.args = { ...args, error: 'Error Message' }

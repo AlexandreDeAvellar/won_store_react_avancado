@@ -1,12 +1,14 @@
 import Menu, { MenuProps } from '.'
-import { Story, Meta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
 
 export default {
   title: 'Menu',
   component: Menu
 } as Meta
 
-export const Basic: Story<MenuProps> = (args) => <Menu {...args} />
+type Story = StoryObj<typeof Menu>
+
+export const Basic: Story = (args: MenuProps) => <Menu {...args} />
 
 Basic.story = {
   parameters: {
@@ -15,5 +17,5 @@ Basic.story = {
   }
 }
 
-export const Logged: Story<MenuProps> = (args) => <Menu {...args} />
+export const Logged: Story = (args: MenuProps) => <Menu {...args} />
 Logged.args = { username: 'Nome Usuário' }

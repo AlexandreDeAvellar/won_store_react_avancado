@@ -1,5 +1,5 @@
 import Showcase, { ShowCaseProps } from '.'
-import { Story, Meta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
 import { highlightProps } from '../Highlight/highlight-mocks'
 import { gameCardProps } from '../GameCardSlider/game-card-slider-mocks'
 
@@ -15,11 +15,13 @@ export default {
   ]
 } as Meta
 
-export const Basic: Story<ShowCaseProps> = (args) => <Showcase {...args} />
+type Story = StoryObj<typeof Showcase>
+
+export const Basic: Story = (args: ShowCaseProps) => <Showcase {...args} />
 Basic.args = { title: 'Most Popular', highlight: highlightProps, game: gameCardProps }
 
-export const WithoutHighlight: Story<ShowCaseProps> = (args) => <Showcase {...args} />
+export const WithoutHighlight: Story = (args: ShowCaseProps) => <Showcase {...args} />
 WithoutHighlight.args = { title: 'Most Popular', game: gameCardProps }
 
-export const WithoutGameCards: Story<ShowCaseProps> = (args) => <Showcase {...args} />
+export const WithoutGameCards: Story = (args: ShowCaseProps) => <Showcase {...args} />
 WithoutGameCards.args = { title: 'Most Popular', highlight: highlightProps }

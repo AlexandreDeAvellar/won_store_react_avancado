@@ -5,9 +5,11 @@ import { addShoppingCartIcon } from '../icons'
 export default {
   title: 'Button',
   component: Button,
+  args: { children: 'Buy Now' },
   argTypes: {
     children: { type: 'string' },
-    disabled: { type: 'boolean' }
+    disabled: { type: 'boolean' },
+    size: { control: 'radio', options: ['small', 'medium', 'large'] }
   },
   icon: { type: '' }
 } as Meta
@@ -21,7 +23,6 @@ Basic.args = { children: 'Buy Now' }
 export const withIcon: Story = (args: ButtonProps) => <Button {...args} />
 
 withIcon.args = {
-  children: 'Buy Now',
   size: 'small',
   icon: <> {addShoppingCartIcon} </>
 }

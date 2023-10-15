@@ -1,5 +1,5 @@
-import Slider, { SilderProps, SliderSettings } from '.'
-import { Story, Meta } from '@storybook/react'
+import Slider, { SliderSettings } from '.'
+import { Meta } from '@storybook/react'
 import styled from 'styled-components'
 
 const horizontalSettings: SliderSettings = {
@@ -32,7 +32,7 @@ const Slide = styled.div`
   text-align: center;
 `
 
-export const Horizontal: Story<SilderProps> = () => (
+export const Horizontal = () => (
   <Slider settings={horizontalSettings}>
     <Slide>1</Slide>
     <Slide>2</Slide>
@@ -41,7 +41,7 @@ export const Horizontal: Story<SilderProps> = () => (
   </Slider>
 )
 
-export const Vertical: Story<SilderProps> = () => (
+export const Vertical = () => (
   <Slider settings={verticalSettings}>
     <Slide>1</Slide>
     <Slide>2</Slide>

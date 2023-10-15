@@ -1,4 +1,5 @@
-import { Story, Meta } from '@storybook/react/types-6-0'
+import { StoryObj, Meta } from '@storybook/react'
+// type Story = StoryObj<typeof >
 import Dropdown, { DropdownProps } from '.'
 
 export default {
@@ -6,7 +7,9 @@ export default {
   component: Dropdown
 } as Meta
 
-export const Default: Story<DropdownProps> = (args) => <Dropdown {...args} />
+type Story = StoryObj<typeof Dropdown>
+
+export const Default: Story = (args: DropdownProps) => <Dropdown {...args} />
 
 Default.args = {
   title: 'Click here',

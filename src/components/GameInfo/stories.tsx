@@ -1,7 +1,6 @@
 import GameInfo, { GameInfoProps } from '.'
-import { Story, Meta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
 import { gameInfoProps } from './game-info-mocks'
-import { CartContextProps } from '../../hooks/use-cart'
 
 export default {
   title: 'GameInfo',
@@ -9,18 +8,19 @@ export default {
   args: gameInfoProps
 } as Meta
 
-export const Default: Story<GameInfoProps> = (args) => (
+type Story = StoryObj<typeof GameInfo>
+
+export const Default: Story = (args: GameInfoProps) => (
   <div style={{ maxWidth: '144rem', margin: 'auto', padding: '1.5rem' }}>
     <GameInfo {...args} />
   </div>
 )
 
-export const IsInCart: Story<GameInfoProps & CartContextProps> = (args) => (
+export const IsInCart: Story = (args: GameInfoProps) => (
   <div style={{ maxWidth: '144rem', margin: 'auto', padding: '1.5rem' }}>
     <GameInfo {...args} />
   </div>
 )
 
-IsInCart.args = {
-  isInCart: () => true
-}
+Default.args = gameInfoProps
+IsInCart.args = gameInfoProps

@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react/types-6-0'
+import { StoryObj, Meta } from '@storybook/react'
 import UserDropdown, { UserDropdownProps } from '.'
 
 export default {
@@ -6,7 +6,9 @@ export default {
   component: UserDropdown
 } as Meta
 
-export const Default: Story<UserDropdownProps> = (args) => (
+type Story = StoryObj<typeof UserDropdown>
+
+export const Default: Story = (args: UserDropdownProps) => (
   <div style={{ maxWidth: '98%', display: 'flex', justifyContent: 'flex-end' }}>
     <UserDropdown {...args} />
   </div>

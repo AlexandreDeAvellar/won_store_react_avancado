@@ -1,6 +1,5 @@
-import { Story, Meta } from '@storybook/react/types-6-0'
-import CartList from '.'
-import { cartItems } from '../../hooks/use-cart/use-cart-mock'
+import { StoryObj, Meta } from '@storybook/react'
+import CartList, { CartListProps } from '.'
 
 export default {
   title: 'CartList',
@@ -8,31 +7,29 @@ export default {
   argsTypes: {
     cartContextValue: { type: '' },
     items: { type: '' }
-  },
-  args: {
-    cartContextValue: {
-      items: cartItems
-    },
-    total: 'R$ 300,00'
   }
 } as Meta
 
-export const Default: Story = (args) => (
+type Story = StoryObj<typeof CartList>
+
+export const Default: Story = (args: CartListProps) => (
   <div style={{ maxWidth: 800 }}>
     <CartList {...args} />
   </div>
 )
 
-export const WithButton: Story = (args) => (
+export const WithButton: Story = (args: CartListProps) => (
   <div style={{ maxWidth: 800 }}>
     <CartList {...args} hasButton />
   </div>
 )
 
-export const Empty: Story = () => (
+export const Empty = () => (
   <div style={{ maxWidth: 800 }}>
     <CartList />
   </div>
 )
 
+Default.args = { hasButton: false }
+WithButton.args = { hasButton: true }
 Empty.args = { cartContextValue: {} }

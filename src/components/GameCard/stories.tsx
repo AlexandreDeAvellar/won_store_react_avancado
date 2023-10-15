@@ -1,6 +1,5 @@
-import { CartContextProps } from '../../hooks/use-cart'
 import GameCard, { GameCardProps } from '.'
-import { Story, Meta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
 
 const props: GameCardProps = {
   id: '1',
@@ -22,27 +21,29 @@ export default {
   }
 } as Meta
 
-export const Basic: Story<GameCardProps> = (args) => (
+type Story = StoryObj<typeof GameCard>
+
+export const Basic: Story = (args: GameCardProps) => (
   <div style={{ width: '25rem' }}>
     <GameCard {...args} />
   </div>
 )
 
-export const WithRibbon: Story<GameCardProps> = (args) => (
+export const WithRibbon: Story = (args: GameCardProps) => (
   <div style={{ width: '25rem' }}>
     <GameCard {...args} />
   </div>
 )
 
-export const IsInCart: Story<GameCardProps & CartContextProps> = (args) => (
+export const IsInCart: Story = (args: GameCardProps) => (
   <div style={{ width: '25rem' }}>
     <GameCard {...args} />
   </div>
 )
 
-IsInCart.args = {
-  isInCart: () => true
-}
+Basic.args = props
+WithRibbon.args = props
+IsInCart.args = props
 
 WithRibbon.args = {
   ribbon: '25% off',

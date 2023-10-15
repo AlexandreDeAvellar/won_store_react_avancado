@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react/types-6-0'
+import { StoryObj, Meta } from '@storybook/react'
 import Empty, { EmptyProps } from '.'
 import { emptyProps } from './empty-mocks'
 
@@ -7,7 +7,9 @@ export default {
   component: Empty
 } as Meta
 
-export const Default: Story<EmptyProps> = (args) => <Empty {...args} />
+type Story = StoryObj<typeof Empty>
+
+export const Default: Story = (args: EmptyProps) => <Empty {...args} />
 
 Default.args = {
   ...emptyProps,
