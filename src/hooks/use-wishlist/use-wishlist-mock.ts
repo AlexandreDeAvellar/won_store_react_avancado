@@ -1,7 +1,7 @@
-import { graphql_host } from '../../utils/graphql-transform/graphql_host'
 import { mockUseCartItems } from '../../hooks/use-cart/use-cart-mock'
 import { QUERY_WISHLIST } from '../../graphql/queries/wishlist'
 import { MUTATION_CREATE_WISHLIST, MUTATION_UPDATE_WISHLIST } from '../../graphql/mutations/wishlist'
+import { getImageUrl } from '../../graphql/graphql-config'
 
 const get_result = {
   data: {
@@ -99,7 +99,7 @@ export const mockWishlistItems = [
     title: 'Enter the Gungeon',
     slug: 'enter-the-gungeon',
     developer: 'Dodge Roll',
-    img: graphql_host + '/uploads/enter_the_gungeon_46f4fe4c68.jpg',
+    img: `${getImageUrl('/uploads/enter_the_gungeon_46f4fe4c68.jpg')}`,
     price: '$27.99',
     promotionalPrice: '$27.99'
   },
@@ -108,7 +108,7 @@ export const mockWishlistItems = [
     title: 'The Witcher: Enhanced Edition',
     slug: 'the-witcher',
     developer: 'CD PROJEKT RED',
-    img: graphql_host + '/uploads/the_witcher_fe844be564.jpg',
+    img: `${getImageUrl('/uploads/the_witcher_fe844be564.jpg')}`,
     price: '$10.50',
     promotionalPrice: '$10.50'
   }

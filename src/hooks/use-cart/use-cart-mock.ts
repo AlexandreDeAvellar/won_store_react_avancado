@@ -1,5 +1,5 @@
-import { graphql_host } from '../../utils/graphql-transform/graphql_host'
 import { QUERY_GAMES } from '../../graphql/queries/games'
+import { getImageUrl } from '../../graphql/graphql-config'
 
 export const mockUseCartItems = {
   data: [
@@ -78,13 +78,13 @@ export const useCartGamesMock = {
 export const cartItems = [
   {
     id: '1',
-    img: graphql_host + '/uploads/enter_the_gungeon_46f4fe4c68.jpg',
+    img: `${getImageUrl('/uploads/enter_the_gungeon_46f4fe4c68.jpg')}`,
     price: '$27.99',
     title: 'Enter the Gungeon'
   },
   {
     id: '2',
-    img: graphql_host + '/uploads/the_witcher_fe844be564.jpg',
+    img: `${getImageUrl('/uploads/the_witcher_fe844be564.jpg')}`,
     price: '$10.50',
     title: 'The Witcher: Enhanced Edition'
   }

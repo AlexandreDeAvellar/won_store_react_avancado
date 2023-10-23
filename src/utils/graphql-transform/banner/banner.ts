@@ -1,5 +1,5 @@
+import { getImageUrl } from '../../../graphql/graphql-config'
 import { BannerProps } from '../../../components/Banner'
-import { graphql_host } from '../graphql_host'
 
 export type BannerGraphqlProps = {
   data: [
@@ -32,7 +32,7 @@ export const bannerTransform = ({ data }: BannerGraphqlProps): BannerProps[] => 
   const banners: BannerProps[] = data.map((b) => ({
     title: b.attributes.title,
     subtitle: b.attributes.subtitle,
-    img: graphql_host + b.attributes.image.data.attributes.url,
+    img: `${getImageUrl(b.attributes.image.data.attributes.url)}`,
     buttonLabel: b.attributes.button.label,
     buttonLink: b.attributes.button.link,
     ribbon: b.attributes?.ribbon?.text,

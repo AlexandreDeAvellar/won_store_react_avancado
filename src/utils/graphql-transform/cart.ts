@@ -1,5 +1,5 @@
+import { getImageUrl } from '../../graphql/graphql-config'
 import { currencyFormat } from '../../utils/format'
-import { graphql_host } from './graphql_host'
 
 export type CartItem = {
   id: string
@@ -38,7 +38,7 @@ export type CartContent = {
 export const cartTransform = (data: CartContent) => {
   const cartItems: CartItem[] = data?.data.map((e) => ({
     id: e.id,
-    img: graphql_host + e.attributes.cover.data.attributes.url,
+    img: `${getImageUrl(e.attributes.cover.data.attributes.url)}`,
     price: currencyFormat(e.attributes.price),
     title: e.attributes.name
   }))

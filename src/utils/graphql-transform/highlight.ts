@@ -1,5 +1,5 @@
 import { HighlightProps } from '../../components/Highlight'
-import { config } from '../../graphql/graphql-config'
+import { getImageUrl } from '../../graphql/graphql-config'
 
 export type HighlightGraphqlProps = {
   title: string
@@ -35,8 +35,8 @@ export const highlightTransform = ({
   return {
     title,
     subtitle,
-    backgroundImage: config.host + background.data.attributes.url,
-    floatImage: config.host + (floatImage?.data.attributes.url || ''),
+    backgroundImage: `${getImageUrl(background.data.attributes.url)}`,
+    floatImage: `${getImageUrl(floatImage?.data.attributes.url || '')}`,
     buttonLabel,
     buttonLink,
     alignment
