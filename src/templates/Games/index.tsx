@@ -14,6 +14,7 @@ import { useQueryGames } from '../../graphql/queries/games'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { ParsedUrlQueryInput } from 'querystring'
+import Image from 'next/image'
 
 export type GamesTemplateProps = {
   filterItems: ItemProps[]
@@ -82,7 +83,7 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
               {hasMoreGames() && (
                 <S.ShowMore>
                   {loading ? (
-                    <S.ShowMoreLoading src="/img/dots.svg" alt="Loading more games..." />
+                    <S.ShowMoreLoading>{<Image src="/img/dots.svg" alt="Loading more games..." fill />}</S.ShowMoreLoading>
                   ) : (
                     <S.ShowMoreButton role="button" onClick={handleShowMore}>
                       <p>Show More</p>

@@ -23,9 +23,7 @@ const Banner = ({ img, title, subtitle, buttonLink, buttonLabel, ribbon, ribbonC
       </Ribbon>
     )}
 
-    <S.ImageWrapper>
-      <Image src={img} alt={title} layout="fill" objectFit="fill" />
-    </S.ImageWrapper>
+    <S.ImageWrapper>{<Image src={img} alt={title} fill />}</S.ImageWrapper>
 
     <S.Caption>
       <S.Titile>{title}</S.Titile>

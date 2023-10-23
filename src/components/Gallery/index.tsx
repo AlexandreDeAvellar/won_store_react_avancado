@@ -5,6 +5,7 @@ import Slider, { SliderSettings } from '../Slider'
 import SlickSlider from 'react-slick'
 
 import * as S from './styles'
+import Image from 'next/image'
 
 const commonSettings: SliderSettings = {
   arrows: true,
@@ -70,7 +71,7 @@ const Gallery = ({ items }: GalleryProps) => {
     <S.Wrapper>
       <Slider ref={slider} settings={settings}>
         {items.map((item, index) => (
-          <img
+          <Image
             role="button"
             key={`thumb-${index}`}
             src={item.src}
@@ -79,6 +80,9 @@ const Gallery = ({ items }: GalleryProps) => {
               setIsOpen(true)
               slider.current!.slickGoTo(index, true)
             }}
+            height={200}
+            width={200}
+            style={{ width: 'auto', height: 'auto' }}
           />
         ))}
       </Slider>
@@ -91,7 +95,7 @@ const Gallery = ({ items }: GalleryProps) => {
         <S.Content>
           <Slider ref={slider} settings={modalSettings}>
             {items.map((item, index) => (
-              <img key={`gallery-${index}`} src={item.src} alt={`${item.label}`} />
+              <Image key={`gallery-${index}`} src={item.src} alt={`${item.label}`} fill />
             ))}
           </Slider>
         </S.Content>

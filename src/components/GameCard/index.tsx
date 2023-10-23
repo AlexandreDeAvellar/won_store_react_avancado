@@ -3,6 +3,7 @@ import * as S from './styles'
 import Link from 'next/link'
 import { CartButton } from '../CartButton'
 import WishlistButton from '../WishlistButton'
+import Image from 'next/image'
 
 export type GameCardProps = {
   id: string
@@ -41,7 +42,7 @@ const GameCard = ({
 
     <Link href={`game/${slug}`} passHref legacyBehavior>
       <S.ImageBox>
-        <img src={img} alt={title} />
+        <Image src={img} alt={title} width={400} height={500} />
       </S.ImageBox>
     </Link>
 

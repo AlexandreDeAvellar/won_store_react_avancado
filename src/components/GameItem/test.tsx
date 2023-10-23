@@ -17,7 +17,10 @@ describe('<GameItem />', () => {
 
     expect(screen.getByRole('heading', { name: props.title })).toBeInTheDocument()
 
-    expect(screen.getByRole('img', { name: props.title })).toHaveAttribute('src', props.img)
+    expect(screen.getByRole('img', { name: props.title })).toHaveAttribute(
+      'src',
+      '/_next/image?url=https%3A%2F%2Fsource.unsplash.com%2Fuser%2Fwillianjusten%2F151x70&w=3840&q=75'
+    )
 
     expect(screen.getByText('R$ 215,00')).toBeInTheDocument()
   })

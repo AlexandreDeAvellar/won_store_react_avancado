@@ -18,8 +18,8 @@ describe('<GameCard />', () => {
     renderWithTheme(<GameCard {...props} />)
     expect(screen.getByRole('heading', { name: props.title })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: props.developer })).toBeInTheDocument()
-    expect(screen.getByRole('img')).toHaveAttribute('src', props.img)
-    expect(screen.getByRole('link', { name: props.title })).toHaveAttribute('href', `game/${props.slug}`)
+    expect(screen.getByRole('img')).toHaveAttribute('src', '/_next/image?url=%2Fimg%2Fred-dead-img.jpg&w=828&q=75')
+    expect(screen.getByRole('link', { name: props.title })).toHaveAttribute('href', 'game/red-dead-redemption-2')
     expect(screen.getByText(props.price)).toBeInTheDocument()
   })
 

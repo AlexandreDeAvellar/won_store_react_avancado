@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { useCart } from '../../hooks/use-cart'
 import { downloadIcon } from '../icons'
 import * as S from './styles'
@@ -25,7 +26,7 @@ const GameItem = ({ id, img, title, price, downloadLink, paymentInfo }: GameItem
     <S.Wrapper>
       <S.GameContent>
         <S.ImageBox>
-          <img src={img} alt={title} />
+          <Image src={img} alt={title} fill />
         </S.ImageBox>
 
         <S.Content>

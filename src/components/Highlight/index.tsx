@@ -14,10 +14,10 @@ export type HighlightProps = {
 
 const Highlight = ({ title, subtitle, buttonLabel, buttonLink, backgroundImage, floatImage, alignment = 'right' }: HighlightProps) => (
   <S.Wrapper alignment={alignment}>
-    <Image alt={title} src={backgroundImage} layout="fill" objectFit="cover" />
+    <Image alt={title} src={backgroundImage} fill />
     {!!floatImage && (
       <S.FloatImageWrapper>
-        <Image src={floatImage} alt={title} width={400} height={300} objectFit="contain" />
+        {<Image src={floatImage} alt={title} width={500} height={500} style={{ width: '25rem', height: '15rem' }} />}
       </S.FloatImageWrapper>
     )}
     <S.Content>
