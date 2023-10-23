@@ -28,6 +28,9 @@ export default function App({ Component, pageProps }: AppProps) {
               <Head>
                 <title>Won Games</title>
                 <meta name="description" content="The best Game Store in the world!" />
+                <link rel="shortcut icon" href="/img/icon-512.png" />
+                <link rel="apple-touch-icon" href="/img/icon-512.png" />
+                <link rel="manifest" href="/manifest.json" />
               </Head>
               <DefaultSeo {...SEO} />
               <NextNProgress color="#F231A5" startPosition={0.3} stopDelayMs={200} height={3} showOnShallow={true} />
