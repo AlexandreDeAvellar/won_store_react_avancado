@@ -12,8 +12,8 @@
     "test:unit-verbose": "npm test -- --watch --collectCoverage=false --verbose=true --silent=false",
     "test:staged": "npm test --",
     "test:ci": "npm test -- --coverage",
-    "sb": "storybook dev -s ./public -p 6006",
-    "b-sb": "storybook build -s ./public",
+    "sb": "storybook dev -p 6006",
+    "b-sb": "storybook build",
     "generate": "npx plop --plopfile ./generators/plopfile.js"
   },
   "dependencies": {
