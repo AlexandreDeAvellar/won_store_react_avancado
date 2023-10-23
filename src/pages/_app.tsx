@@ -1,5 +1,8 @@
 import NextNProgress from 'nextjs-progressbar'
 
+import { DefaultSeo } from 'next-seo'
+import SEO from '../../next-seo.config'
+
 import { SessionProvider } from 'next-auth/react'
 import { ApolloProvider } from '@apollo/client'
 import { ThemeProvider } from 'styled-components'
@@ -26,6 +29,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 <title>Won Games</title>
                 <meta name="description" content="The best Game Store in the world!" />
               </Head>
+              <DefaultSeo {...SEO} />
               <NextNProgress color="#F231A5" startPosition={0.3} stopDelayMs={200} height={3} showOnShallow={true} />
               <Component {...pageProps} />
             </WishlistProvider>
